@@ -1,0 +1,9 @@
+@font-face {
+    font-family: Kongtext;
+    src: url(kongtext.ttf);
+}
+
+html *
+{
+    font-family: Kongtext;
+}
