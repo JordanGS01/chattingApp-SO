@@ -1,3 +1,4 @@
+import { InputMessageBar } from "./InputMessageBar"
 import { Message } from "./Message"
 
 
@@ -9,6 +10,8 @@ export const MessagesContainer = () => {
         <Message user={"Leandro"} content={"Que mae, pura vida?"} sender={false}/>
         <Message user={"Victor"} content={"Eso mae, todo bien?"} sender={false}/>
       </section>
+
+      <InputMessageBar />
     </div>
   )
 }
