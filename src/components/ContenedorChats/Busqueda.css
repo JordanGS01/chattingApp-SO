@@ -1,0 +1,77 @@
+.contenedor-barra-busqueda{
+    background-color: #D9D9D9;
+    height: 5vh;
+}
+
+.boton-busqueda{
+    /* color  */
+    background-color: white;  
+
+    /* Radio de los bordes */
+    border-bottom-left-radius: 0%;
+    border-top-left-radius: 0%;
+    border-bottom-right-radius: 50%;
+    border-top-right-radius: 50%;
+
+    /* Estilo de bordes */
+    border-left: 0px ;
+    border-right: 2px solid rgb(80, 75, 75);
+    border-top: 2px solid rgb(80, 75, 75);
+    border-bottom: 2px solid rgb(80, 75, 75);
+}
+
+.boton-mas{
+    background-color: darkgrey;
+    color: black ;
+    border: 0px;
+    margin-left: 4%;
+}
+
+.boton-Contactos{
+    background-color: darkgrey;
+    color: black ;
+    border: 0px;
+    margin-left: 2%;
+}  
+/* barra de búsqueda */
+.me-2{
+    /* Forma redonda de la barra de búsqueda */
+    border-bottom-left-radius: 40px;
+    border-top-left-radius: 40px;
+
+    /* Tamaños */
+    font-size: xx-small;
+    width: 60%;
+
+
+    /* Estilo de bordes */
+    border-right: 0px;
+    border-left: 2px solid rgb(80, 75, 75);
+    border-top: 2px solid rgb(80, 75, 75);
+    border-bottom: 2px solid rgb(80, 75, 75);
+}
+
+.me-2::placeholder{
+
+    /* Color placeholder */
+    color: gray;
+
+    /* Tamaño de fuente y sangría */
+    font-size: xx-small;
+    text-indent: 8%;
+}
+
+
+.d-flex {
+    /*  margenes barra de búsqueda y bótones*/
+    margin-top: 1%;
+    margin-left: 1%;
+
+    /* Eliminar Borde  */
+    border: 0px;
+    
+    /* Ordenar Botones */
+    display: flex;
+    justify-content: flex-start;
+}
+
