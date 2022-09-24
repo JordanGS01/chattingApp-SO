@@ -98,6 +98,15 @@ export const SignUp = ({ setSignUpFlag }) => {
           <button type="submit" className="nes-btn is-primary">SignUp</button>
 
         </form>
+        
+        <small>Do you already have an account?
+          <a 
+            onClick={()=>setSignUpFlag(false)}
+            className="nes-badge"
+          >
+            <span className='is-primary'>Sign in!</span>
+          </a>
+        </small>
 
       </div>
     </div>

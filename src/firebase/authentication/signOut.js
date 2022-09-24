@@ -1,7 +1,7 @@
 
 import { signOut } from 'firebase/auth'
 
-import { auth } from './'
+import { auth } from '../'
 
 
 export const signOutUser = async () => {
