@@ -1,6 +1,6 @@
 .contenedor-barra-busqueda{
-    background-color: #D9D9D9;
-    height: 5vh;
+    background-color: white;
+    height: fit-content;
 }
 
 .boton-busqueda{
@@ -18,20 +18,31 @@
     border-right: 2px solid rgb(80, 75, 75);
     border-top: 2px solid rgb(80, 75, 75);
     border-bottom: 2px solid rgb(80, 75, 75);
+
+    /* **** Hechar un ojo **** */
+    margin-left: -5%;
 }
 
 .boton-mas{
-    background-color: darkgrey;
+    background-color: white;
     color: black ;
     border: 0px;
-    margin-left: 4%;
+
 }
 
 .boton-Contactos{
-    background-color: darkgrey;
+    background-color: white;
     color: black ;
     border: 0px;
-    margin-left: 2%;
+}
+.boton-Contactos:hover{
+    background-color: black;
+}  
+.boton-atras-busqueda{
+    background-color: white;
+    color: black ;
+    border: 0px;
+
 }  
 /* barra de búsqueda */
 .me-2{
@@ -58,14 +69,15 @@
 
     /* Tamaño de fuente y sangría */
     font-size: xx-small;
-    text-indent: 8%;
+    text-indent: 0%;
 }
 
 
 .d-flex {
     /*  margenes barra de búsqueda y bótones*/
-    margin-top: 1%;
+    margin-top: 2%;
     margin-left: 1%;
+    margin-bottom: 2%;
 
     /* Eliminar Borde  */
     border: 0px;

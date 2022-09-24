@@ -1,34 +1,30 @@
-import React from 'react'
-import {Button,Form, FormControl} from 'react-bootstrap'
-import src from "./Bulbasaur.png"
+
+import {Button} from 'react-bootstrap'
+import fotoVacia from "../../Images/EmptyProfilepicture.png"
 
 import  './Chat.css'
-const chat = () => {
+const chat = (props) => {
   return (
     <>
+
     <Button className='seleccionar-chat' variant='light'>
     <div className='caja-chat'>
-      <Form className="d-flex">
-        <img className="foto-perfil-chat" src={src} />
+        <img className="foto-perfil-chat" src={props.fotoPerfil ? props.fotoPerfil : fotoVacia} />
         <div className='contenedor-texto'>
           <div className='contenedor-nombre-fecha'>
-          <h6 className = 'texto-nombre'>
-             Victor:   
-            </h6>
+          <div className = 'texto-nombre'>
+             {props.nombre} :   
+            </div>
             <a className='texto-fecha'>
-              23:04   
+              {props.hora}  
             </a>
             </div>
-            <p className='texto-cuerpo'>
-              Hola, Mi nombre es victor
-
-
-
-            </p>
-           
+            <div className='texto-cuerpo'>
+              {props.cuerpoMensaje}
+            </div>
         </div>
-      </Form>
       </div>
+  
     </Button>
     </>
   )

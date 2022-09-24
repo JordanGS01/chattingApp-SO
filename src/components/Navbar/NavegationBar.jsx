@@ -7,10 +7,10 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-
+import { Link } from 'react-router-dom';
 export const NavegationBar = () => {
     return (
-      <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
+      <Navbar  collapseOnSelect expand="lg" bg="light" variant="light">
             <Container>
             <img src={Logo} class='imglogo' alt="Logo"/>
               <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -19,7 +19,7 @@ export const NavegationBar = () => {
                   <Nav.Link href="#Profile">Profile</Nav.Link>
                   <Nav.Link href="#Nothing"></Nav.Link>
                   <NavDropdown title="Contacts" id="collasible-nav-dropdown">
-                    <NavDropdown.Item href="#AddContact">Add Contact</NavDropdown.Item>
+                    <NavDropdown.Item >Add Contact</NavDropdown.Item>
                     <NavDropdown.Item href="#SearchContact">
                       Search Contact
                     </NavDropdown.Item>
