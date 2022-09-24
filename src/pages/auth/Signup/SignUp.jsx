@@ -2,10 +2,10 @@
 import './SignUp.css'
 import { useForm } from '../../../hooks/useForm'
 
-import { signUpUser } from '../../../firebase/signUp'
+import { signUpUser } from '../../../firebase'
 
-export const SignUp = () => {
-  const { formState, onInputChange, onResetForm } = useForm({
+export const SignUp = ({ setSignUpFlag }) => {
+  const { formState, onInputChange } = useForm({
     user: "",
     email: "",
     password: "",
@@ -15,9 +15,12 @@ export const SignUp = () => {
 
   const onFormSubmit = (e) => {
     e.preventDefault();
+    
     const { email, password } = formState;
 
     signUpUser(email, password);
+
+    setSignUpFlag(false)
   }
 
   return (

@@ -23,11 +23,13 @@ function App() {
       {/* Si el usuario no está logueado, se le hace loguearse */}
       {
         user ?
+        <>
+        <NavegationBar />
         <div className='app'>
-          <NavegationBar />
           <CajaChats />
           <MessagesContainer />
         </div>
+        </>
         :
         <Login />
       }
