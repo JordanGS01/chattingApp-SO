@@ -32,6 +32,32 @@ const ListaChats = () => {
         bloqueado = {true}
         />
 
+<Chat nombre = {"Usuario Sin foto de perfil"} 
+        cuerpoMensaje = {"Este es un usuario sin foto de perfil"} 
+        hora = {"12:08"}
+        bloqueado = {true}
+        />
+        <Chat nombre = {"Usuario Sin foto de perfil"} 
+        cuerpoMensaje = {"Este es un usuario sin foto de perfil"} 
+        hora = {"12:08"}
+        bloqueado = {true}
+        />
+        <Chat nombre = {"Usuario Sin foto de perfil"} 
+        cuerpoMensaje = {"Este es un usuario sin foto de perfil"} 
+        hora = {"12:08"}
+        bloqueado = {true}
+        />
+        <Chat nombre = {"Usuario Sin foto de perfil"} 
+        cuerpoMensaje = {"Este es un usuario sin foto de perfil"} 
+        hora = {"12:08"}
+        bloqueado = {true}
+        />
+        <Chat nombre = {"Usuario Sin foto de perfil"} 
+        cuerpoMensaje = {"Este es un usuario sin foto de perfil"} 
+        hora = {"12:08"}
+        bloqueado = {true}
+        />
+
     </div>
   )
 }
