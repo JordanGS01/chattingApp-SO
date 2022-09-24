@@ -2,7 +2,7 @@
 import './SignUp.css'
 import { useForm } from '../../../hooks/useForm'
 
-import { signUpUser } from '../../../firebase'
+import { signUpUser, registerNewUserInCollection } from '../../../firebase'
 
 export const SignUp = ({ setSignUpFlag }) => {
   const { formState, onInputChange } = useForm({
@@ -16,9 +16,17 @@ export const SignUp = ({ setSignUpFlag }) => {
   const onFormSubmit = (e) => {
     e.preventDefault();
     
-    const { email, password } = formState;
+    const { email, password, user, birthDay } = formState;
+    
+    const userObject = {
+      user,
+      email,
+      birthDay,
+      contacts: [],
+      chats: []
+    }
 
-    signUpUser(email, password);
+    signUpUser(userObject, password);
 
     setSignUpFlag(false)
   }
