@@ -3,8 +3,8 @@ import Chat from './Chat'
 
 // Imagenes de prueba
 import src from "../../FotosPerfil/Bulbasaur.png"
-import src1 from "../../FotosPerfil/Bulbasaur.png"
-import src2 from "../../FotosPerfil/Bulbasaur.png"
+import src1 from "../../FotosPerfil/charmander.png"
+import src2 from "../../FotosPerfil/squirtle.png"
 
 const ListaChats = () => {
   return (
