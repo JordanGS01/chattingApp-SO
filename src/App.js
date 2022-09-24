@@ -9,7 +9,7 @@ import { auth } from './firebase'
 // IMPORTS PROPIOS - COMPONENTES Y ESTILOS
 import './App.css';
 import { MessagesContainer } from './components/Chat/MessagesContainer';
-import CajaChats from './components/ContenedorChats/CajaChats'
+import ContenedorPrincipal from './components/ContenedorChats/ContenedorPrincipal'
 import {NavegationBar} from './components/Navbar/NavegationBar'
 import { Login } from './pages/auth/Login/Login';
 
@@ -26,7 +26,7 @@ function App() {
         <>
         <NavegationBar />
         <div className='app'>
-          <CajaChats />
+          <ContenedorPrincipal />
           <MessagesContainer />
         </div>
         </>

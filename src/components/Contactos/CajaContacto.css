@@ -1,0 +1,95 @@
+
+.seleccionar-contacto{
+    width: 100%;
+    background-color: white;
+    color: black ;
+    border: 1px solid #B8B8B8;
+
+}
+.form-contactos{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5%;
+    margin-bottom: 5% ;
+}
+.nombre-contacto{
+    margin-top: 5%;
+    margin-right: 15%;
+    font-size: larger;
+    margin-left: 4%;
+}
+.opciones-contactos{
+    margin-top: 4%;
+}
+.foto-perfil-chat{
+    max-width: 5vw;
+    max-height: 5vw;
+    border-radius: 50%;
+    margin-left: 2%;
+    margin-right: 2%;        
+}
+
+.menu-opciones-contactos{
+    font-size: 9px;
+    border: 2px solid #d9d9d9;
+    width: fit-content;
+    height: fit-content;
+    border-radius: 5%;
+    padding: 0%;
+}
+.icono-menu{
+    margin-right: 10%;
+    color: red;
+    height: 2vh;
+    width: 2vh;   
+}
+.opciones-menu-contacto{
+    border-bottom: 1px solid #d9d9d9;
+}
+.icono-contacto-info{
+    margin-right: 10%;
+    color: blue;
+    height: 2vh;
+    width: 2vh;
+}
+
+.icono-menu-abrirMensaje{
+    margin-right: 10%;
+    color: green;
+    height: 2vh;
+    width: 2vh;
+}
+
+.contenedor-botones-modal-bloqueo{
+    display: flex;
+    justify-content: space-between;
+    border: 0px;
+}
+
+.modal-bloqueo {
+    height:auto; bottom:auto;
+    width: auto;
+    
+    text-indent: 5%;
+    border: 10px solid red;
+    border-radius: 50px;
+    margin-left: 28%;
+    margin-top: 5%;
+ }
+
+.toast-desbloqueo-header{
+    background-color: lightgreen;
+    font-size: xx-small;
+    display: flex;
+    justify-content: space-between;
+    text-indent: 10%;
+
+    border-radius: 0%;
+    
+}
+.check-toast{
+    height: 20px;
+    width: 20px;
+    background-color: lightgreen;
+    margin-right: 5%;
+}

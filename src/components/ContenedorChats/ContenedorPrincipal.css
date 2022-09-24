@@ -1,19 +1,25 @@
 .caja-chats{
   display: block;
+  background-color: white;
   width: 25%;
+
 }
 /* Contenedor de la barra de busqueda y sus botones */
 .contenedor-busqueda {
     /* Border  */
-    border: 3px solid #B8B8B8;
+    border: 2px solid #B8B8B8;
 
     /* Colores */
-    background-color: #D9D9D9;
+    background-color: white;
+    
+    /* Tamaño */
+
 
 }
 .contenedor-mensajes{
-  border: 3px solid #B8B8B8;
-  background-color: #D9D9D9;
+
+  border-top-color: white;
+  background-color: white;
 
   /* ********ARREGLAR******* */
   height: 50vw;
@@ -26,19 +32,23 @@
 
 /* Estilos ScrollBar */
 ::-webkit-scrollbar{
-  width: 3px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1; 
+  background-color: aliceblue;
+  
 }
  
 
 ::-webkit-scrollbar-thumb {
   background: #555; 
+  border-radius: 100px;
+  background: lightblue; 
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: black; 
+  background: rgb(30, 114, 134); 
+  border-radius: 100px;
 }
