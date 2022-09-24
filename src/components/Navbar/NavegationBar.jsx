@@ -12,7 +12,7 @@ export const NavegationBar = () => {
     return (
       <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
             <Container>
-            <img src={Logo} class='imglogo' alt="Logo"/>
+            <img src={Logo} className='imglogo' alt="Logo"/>
               <Navbar.Toggle aria-controls="responsive-navbar-nav" />
               <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="me-auto">
@@ -35,8 +35,8 @@ export const NavegationBar = () => {
                     Community (WIP)
                   </Nav.Link>
                   
-                  <img src={User} class='imgUser' alt="Logo"/>
-                  <span class="simpletext">Username <br></br> <text class="statusOnline"> Log Out</text> </span> 
+                  <img src={User} className='imgUser' alt="Logo"/>
+                  <span className="simpletext">Username <br></br> <text class="statusOnline"> Log Out</text> </span> 
                  
                 </Nav>
               </Navbar.Collapse>

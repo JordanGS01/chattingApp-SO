@@ -1,0 +1,17 @@
+* {
+    box-sizing: border-box;
+  }
+
+.profile_containers{
+   /*width: 75%;
+   float: right; */
+   display: flex; /*box para vertical*/
+   justify-content: center;
+   
+}
+.profile_img{
+    width: 200px;
+    height:200px;
+    margin-right: 12px;
+    border-radius: 50%;
+}
