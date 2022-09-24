@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import {
   AiOutlineContacts,
   AiOutlineArrowLeft,
-  AiOutlineMessage,
-  AiOutlineSearch} from "react-icons/ai"
+  AiOutlineSearch,
+  AiOutlinePlusCircle} from "react-icons/ai"
 import "./Busqueda.css"
 const Busqueda = () => {
 
@@ -30,7 +30,7 @@ const Busqueda = () => {
             
             <Button className = 'boton-mas'
             variant='light'>
-                  <AiOutlineMessage   /> 
+                  <AiOutlinePlusCircle /> 
             </Button>   
             <Link to="/Contacts" className='link-Contactos'>
             <Button className= 'boton-Contactos'

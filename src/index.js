@@ -9,7 +9,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 //IMPORTS PROPIOS - ESTILOS Y COMPONENTES
 import './index.css';
 import App from './App';
-import { AddContact } from './components/Contacts/AddContact';
+
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
