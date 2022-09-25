@@ -39,7 +39,7 @@ export const NavegationBar = () => {
                   </Nav.Link>
                   
                   <img src={User} className='imgUser' alt="Logo"/>
-                  <span className="simpletext">Username <br></br> <text className="statusOnline" onClick={signOutUser}> Log Out</text> </span> 
+                  <span className="simpletext">Username <br></br> <p className="statusOnline" onClick={signOutUser}> Log Out</p> </span> 
                  
                 </Nav>
               </Navbar.Collapse>

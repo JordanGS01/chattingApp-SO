@@ -10,3 +10,5 @@ export * from './authentication/signIn'
 
 //FIRESTORE EXPORTS
 export * from './firestore/registerNewUser'
+export * from './firestore/addContact'
+export * from './firestore/searchUser'
