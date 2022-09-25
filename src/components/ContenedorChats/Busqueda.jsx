@@ -1,13 +1,29 @@
-
-import {Form,Button} from 'react-bootstrap/';  
+import { useState } from 'react';
+import {Form,Button,Modal} from 'react-bootstrap/';  
 import { Link } from 'react-router-dom';
 import {
   AiOutlineContacts,
   AiOutlineArrowLeft,
   AiOutlineSearch,
-  AiOutlinePlusCircle} from "react-icons/ai"
+  AiOutlinePlusCircle,
+  AiOutlineCheck
+  } from "react-icons/ai"
+import {MdCancel} from "react-icons/md"
 import "./Busqueda.css"
 const Busqueda = () => {
+
+  const [contactName,setContactName] = useState("")
+  // Funciones para Modal de añadir contacto
+  const [showAddContact,setAddContact] = useState(false)
+
+
+  const closeAddContact = () => setAddContact(false)
+  const openAddContact = () => setAddContact(true)
+
+  const addContact = (e) => {
+      e.preventDefault()
+      console.log("El nombre del contacto es: "+contactName)
+  }
 
   return (
     <div className='contenedor-barra-busqueda'>
@@ -29,7 +45,7 @@ const Busqueda = () => {
 
             
             <Button className = 'boton-mas'
-            variant='light'>
+            variant='light' onClick={openAddContact}>
                   <AiOutlinePlusCircle /> 
             </Button>   
             <Link to="/Contacts" className='link-Contactos'>
@@ -40,6 +56,33 @@ const Busqueda = () => {
             </Link>
           </Form>
 
+      <Modal className = 'modal-bloqueo' show= {showAddContact} onHide = {() => closeAddContact}>
+
+        <Modal.Header>
+          <Modal.Title> Add User </Modal.Title>
+        </Modal.Header>
+
+        <Modal.Body style={{textIndent : "10%", border:"0px"}}>
+              <Form onSubmit={addContact}>
+              <input  onChange={(e) => setContactName(e.target.value)} value = {contactName}>
+
+              </input>
+              <Button  variant = "success" type='submit' style={{backgroundColor : "green"}}>
+                <AiOutlineCheck style={{backgroundColor : "green"}}/>
+              </Button>
+              </Form>
+
+        </Modal.Body>
+
+        <Modal.Footer className= "contenedor-botones-modal-bloqueo">
+
+
+          <Button variant = "danger" onClick= {closeAddContact} style={{backgroundColor : "red"}}>
+              <MdCancel  style={{backgroundColor : "red"}}/>
+          </Button>
+
+        </Modal.Footer>
+     </Modal>
     </div>
   )
 }

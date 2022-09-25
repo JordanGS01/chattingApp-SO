@@ -96,7 +96,8 @@ const CajaContacto = (props) => {
         </Modal.Footer>
      </Modal>
     </div>
-          {/* Notificación de Desbloqueo */}
+
+{/* Notificación de Desbloqueo */}
           <Toast 
           className = "toast-desbloqueo"
           show= {NotificacionDesb} 
