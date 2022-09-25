@@ -12,7 +12,7 @@ import { MessagesContainer } from './components/Chat/MessagesContainer';
 import CajaChats from './components/ContenedorChats/CajaChats'
 import {NavegationBar} from './components/Navbar/NavegationBar'
 import { Login } from './pages/auth/Login/Login';
-
+import {AudioRecorder} from './components/Audio/audiorecord';
 
 function App() {
 
