@@ -1,9 +1,11 @@
 .caja-chats{
   display: block;
   background-color: white;
-  width: 25%;
-
+  width: 25%; 
+  height: 100%;
+  
 }
+
 /* Contenedor de la barra de busqueda y sus botones */
 .contenedor-busqueda {
     /* Border  */
@@ -23,6 +25,8 @@
 
   /* ********ARREGLAR******* */
   border-right: 2px solid #D9D9D9;
+  height: 100%;
+
 
   /* tipo ScrollBar */
   overflow: auto;
@@ -32,7 +36,7 @@
 
 /* Estilos ScrollBar */
 ::-webkit-scrollbar{
-  width: 10px;
+  width: 5px;
 }
 
 ::-webkit-scrollbar-track {

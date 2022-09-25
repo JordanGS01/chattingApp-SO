@@ -1,34 +1,37 @@
 
 import CajaContacto from './CajaContacto'
 
-// Imagenes de prueba
-import src from "../ContenedorChats/Bulbasaur.png"
-import src1 from "../ContenedorChats/charmander.png"
-import src2 from "../ContenedorChats/squirtle.png"
+import { useState,useEffect } from 'react'
+import { IterateContacts } from '../../firebase'
 
+import src from "./Bulbasaur.png"
 const ListaContactos = () => {
+  const [userContacts,setUserContacts] = useState([])
+  const createContact = () =>{
+    const contactos = IterateContacts("Victor")
+    contactos.then( res => setUserContacts(res))
+  }
+  useEffect(() => {
+    createContact()
+  })
   return (
     <div className='ListaContactos'>
-      
-        <CajaContacto
-         nombre = {"Jordan"}
-         fotoPerfil = {src}
-         bloqueado = {false} />
+        {userContacts.map((contact) =>
+          { 
+          return(
 
-        <CajaContacto 
-        nombre = {"Leandro"} 
-        fotoPerfil = {src1}
-        bloqueado = {true}/>
-
-        <CajaContacto
-         nombre = {"Victor"} 
-         fotoPerfil = {src2}
-         bloqueado = {false}/>
-
-        <CajaContacto
-         nombre = {"Usuario sin foto"} 
-         bloqueado = {true}/>
-
+            <CajaContacto
+                nombre = {contact.userName}
+                fotoPerfil = {""}
+                bloqueado = {true} />
+          )
+          }
+        )
+      }
+      <CajaContacto
+                nombre = {"prueba"}
+                fotoPerfil = {src}
+                bloqueado = {true} />
     </div>
   )
 }

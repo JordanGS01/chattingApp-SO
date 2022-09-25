@@ -1,8 +1,5 @@
-import React from 'react'
-import  Chat from './Chat'
 import Busqueda from './Busqueda'
-import CajaContacto from '../Contacts/CajaContacto'
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import './ContenedorPrincipal.css'
 import ListaChats from './ListaChats';
 import ListaContactos from '../Contacts/ListaContactos';
