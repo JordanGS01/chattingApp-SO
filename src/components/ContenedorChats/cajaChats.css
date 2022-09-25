@@ -1,0 +1,44 @@
+.caja-chats{
+  display: block;
+  width: 25%;
+}
+/* Contenedor de la barra de busqueda y sus botones */
+.contenedor-busqueda {
+    /* Border  */
+    border: 3px solid #B8B8B8;
+
+    /* Colores */
+    background-color: #D9D9D9;
+
+}
+.contenedor-mensajes{
+  border: 3px solid #B8B8B8;
+  background-color: #D9D9D9;
+
+  /* ********ARREGLAR******* */
+  height: 50vw;
+
+  /* tipo ScrollBar */
+  overflow: auto;
+  overflow-x: hidden;
+
+}
+
+/* Estilos ScrollBar */
+::-webkit-scrollbar{
+  width: 3px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+
+::-webkit-scrollbar-thumb {
+  background: #555; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: black; 
+}

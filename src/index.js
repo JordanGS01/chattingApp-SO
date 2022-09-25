@@ -1,20 +1,23 @@
+// IMPORTS PROPIOS DE REACT
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+
+//LIBRERIAS DE ESTILOS
 import "nes.css/css/nes.min.css";
-//import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {NavegationBar} from './components/Navbar/NavegationBar'
-import { MessagesContainer } from './components/Chat/MessagesContainer';
-import { ProfileContainer } from './components/Profile/ProfileContainer'
-import { AddContact } from './components/Contacts/addContact'
+
+//IMPORTS PROPIOS - ESTILOS Y COMPONENTES
+import './index.css';
+import App from './App';
+import { AddContact } from './components/Contacts/AddContact';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <NavegationBar />
-    <AddContact Username={"Leandro sdasssssdasdasdasdasdada"}></AddContact>
+    <App />
   </React.StrictMode>
 );
 
+//Pagina utilizada de referencia para los estilos retro
 //https://nostalgic-css.github.io/NES.css/#
