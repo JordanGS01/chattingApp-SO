@@ -56,7 +56,9 @@ const CajaContacto = (props) => {
     unblockUser(props.nombre)
   }
 
- 
+  const openChat = () =>{
+    console.log("Abrí el chat de " )
+  }
   return (
     <>
     <div className='seleccionar-contacto' variant='light' style={{backgroundColor: bloqueado ? "	#8B0000" : "white"}}>

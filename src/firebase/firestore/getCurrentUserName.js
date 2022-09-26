@@ -10,8 +10,7 @@ export const getCurrentUserName = async() =>{
         
         const userSnapshot = await getDoc(userRef)
         const userData = userSnapshot.data()
-        const currentUserName = userData.user
-        return currentUserName
+        return userData
     }catch(error){
         console.log(error)
     }
