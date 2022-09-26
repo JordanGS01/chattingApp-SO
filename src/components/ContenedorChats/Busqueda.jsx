@@ -30,8 +30,8 @@ const Busqueda = () => {
 
   const onFormSubmit = (e) => {
       e.preventDefault();
-      
-      addContact(contactName);
+
+      addContact(contactName) ;
   }
 
   return (
@@ -70,8 +70,38 @@ const Busqueda = () => {
           </Button>
         </Link>
       </Form>
-
+{/* Modal Para bloquear usuario */}
       <Modal className = 'modal-bloqueo' show= {showAddContact} onHide = {() => closeAddContact}>
+        
+        <Modal.Header>
+          <Modal.Title> Add User </Modal.Title>
+        </Modal.Header>
+
+        <Modal.Body style={{textIndent : "10%", border:"0px"}}>
+          <Form onSubmit={onFormSubmit}>
+            <input 
+              onChange={(e) => setContactName(e.target.value)} 
+              value = {contactName}
+            />
+
+            <Button  variant = "success" type='submit' style={{backgroundColor : "green"}}>
+              <AiOutlineCheck style={{backgroundColor : "green"}}/>
+            </Button>
+          </Form>
+        </Modal.Body>
+
+        <Modal.Footer className= "contenedor-botones-modal-bloqueo">
+
+
+          <Button variant = "danger" onClick= {closeAddContact} style={{backgroundColor : "red"}}>
+              <MdCancel  style={{backgroundColor : "red"}}/>
+          </Button>
+
+        </Modal.Footer>
+
+     </Modal>
+     {/* Modal Eliminar Contacto */}
+     <Modal className = 'modal-bloqueo' show= {showAddContact} onHide = {() => closeAddContact}>
         
         <Modal.Header>
           <Modal.Title> Add User </Modal.Title>

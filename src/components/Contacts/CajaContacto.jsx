@@ -1,6 +1,14 @@
 import { useState } from "react"
 import "./CajaContacto.css"
-import { Dropdown,Modal,Button,Toast} from 'react-bootstrap'
+
+// Bootstrap
+import { Dropdown,Modal,Button,Toast,ToastContainer} from 'react-bootstrap'
+
+// Funciones Firebase
+
+import { blockUser,unblockUser,eliminateContact} from "../../firebase"
+
+
 // Iconos
 import {BsFillTrashFill,BsFillChatFill,BsFillUnlockFill} from 'react-icons/bs'
 import {BiBlock} from 'react-icons/bi'
@@ -11,37 +19,43 @@ import fotoVacia from "../../Images/EmptyProfilepicture.png"
 
 const CajaContacto = (props) => {
   
-
+  // UseState para usuario Bloqueado
   const [bloqueado,setBloqueo] = useState(props.bloqueado)
 
-  const [MostrarPopUpBloqueo,setPopUpBloqueo] = useState(false)
   const [NotificacionDesb,setNotificacionDesb] = useState(false)
-
-  
-  
-
+  const [addedUserToast, setAddedUserToast] = useState(false)
+  // Funciones para el modal de bloqueo
+  const [MostrarPopUpBloqueo,setPopUpBloqueo] = useState(false)
   const cerrarPopUpBloqueo = () => setPopUpBloqueo(false)
   const abrirPopUpBloqueo = () => setPopUpBloqueo(true)
   
+
+  const [showEliminateUser,setEliminateUser] = useState(false)
+
+  const closeEliminateUser = () => setEliminateUser(false)
+  const OpenEliminateUser = () => setEliminateUser(true)
   //Mostrar Notificación de desbloquear usuario
   const notificarDesbloqueo = () => setNotificacionDesb(!NotificacionDesb)
+  const notifyEliminateUser = () => setAddedUserToast(!addedUserToast)
 
   const handleDelete = (e) => {
-      console.log("contacto " + props.nombre +" eliminado")
+      setAddedUserToast(true)
+      setEliminateUser(false)
+      eliminateContact()
   }
 
   const bloquearUsuario = () => {
       setPopUpBloqueo(false)
       setBloqueo(true)
-      console.log("el usuario " + props.nombre + " ha sido bloqueado")
+      blockUser(props.nombre)
   }
 
   const desbloquearUsuario = () => {
-    setBloqueo(false)
     notificarDesbloqueo()
-    console.log("el usuario " + props.nombre + " ha sido bloqueado")
+    setBloqueo(false)
+    unblockUser(props.nombre)
   }
-  
+
  
   return (
     <>
@@ -59,7 +73,7 @@ const CajaContacto = (props) => {
                       <BsFillChatFill className='icono-menu-abrirMensaje'/> 
                       Abrir Chat
                   </Dropdown.Item >
-                  <Dropdown.Item className= 'opciones-menu-contacto' onClick={handleDelete}> 
+                  <Dropdown.Item className= 'opciones-menu-contacto' onClick={OpenEliminateUser}> 
                       <BsFillTrashFill className='icono-menu'/> 
                       Eliminar Contacto
                   </Dropdown.Item >
@@ -97,17 +111,17 @@ const CajaContacto = (props) => {
         </Modal.Footer>
      </Modal>
      {/* Modal de eliminar Contacto */}
-     <Modal className = 'modal-bloqueo' show= {MostrarPopUpBloqueo} onHide = {() => cerrarPopUpBloqueo}>
+     <Modal className = 'modal-bloqueo' show= {showEliminateUser} onHide = {() => closeEliminateUser}>
         <Modal.Header>
-          <Modal.Title>¿Estas seguro que quieres Bloquear a este usuario?</Modal.Title>
+          <Modal.Title>¿Estas seguro que quieres Eliminar a este usuario?</Modal.Title>
         </Modal.Header>
-        <Modal.Body style={{textIndent : "10%", border:"0px"}}>Al bloquear este usuario no podras enviarle mensajes nuevos, ni este podra responderte  </Modal.Body>
+      
         <Modal.Footer className= "contenedor-botones-modal-bloqueo">
 
-          <Button variant="success" style={{backgroundColor: "green" }} onClick={bloquearUsuario}>
+          <Button variant="success" style={{backgroundColor: "green" }} onClick={handleDelete}>
             <AiOutlineCheck style={{backgroundColor: "green" }}/>
           </Button>
-          <Button variant="danger" onClick={cerrarPopUpBloqueo} style={{backgroundColor: "red" }}>
+          <Button variant="danger" onClick={closeEliminateUser} style={{backgroundColor: "red" }}>
             <MdCancel style={{backgroundColor: "red" }} />
           </Button>
 
@@ -127,6 +141,17 @@ const CajaContacto = (props) => {
           </Toast.Header>
           
         </Toast>
+
+        {/* Notificación de Contacto Eliminado*/}
+
+
+          <Toast show= {addedUserToast} onClose= {notifyEliminateUser}>
+            <Toast.Header>
+
+              <div className="me-auto">Usuario Eliminado</div>
+            </Toast.Header>
+          </Toast>
+
     </>
   )
 }

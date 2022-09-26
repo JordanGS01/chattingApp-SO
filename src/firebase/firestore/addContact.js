@@ -11,7 +11,7 @@ export const addContact = async ( userName ) => {
 
     try{
         const user = await searchUser( userName );
-    
+        console.log(user)
         //El usuario no existe
         if( user.length < 1 ){return null;}
 
