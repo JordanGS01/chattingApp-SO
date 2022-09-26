@@ -22,6 +22,7 @@ const ContenedorPrincipal = () => {
     declareObjects()
   },[])
 
+<<<<<<< HEAD
   if (contacts === undefined ) {
     return (
       <div className='caja-chats'>
@@ -34,6 +35,10 @@ const ContenedorPrincipal = () => {
       </div>
     )
   }
+=======
+  
+
+>>>>>>> 857b5417da8731cfb3c40fe0268c72bb857f16d5
   return (
     <div className='caja-chats'>
       <div className='contenedor-busqueda'>
