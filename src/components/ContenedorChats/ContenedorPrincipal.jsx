@@ -6,6 +6,8 @@ import ListaContactos from '../Contacts/ListaContactos';
 
 const ContenedorPrincipal = () => {
 
+  
+
   return (
     <div className='caja-chats'>
   

@@ -12,7 +12,7 @@ const ListaContactos = () => {
   const createContact = async() =>{
     const CurrentUserName = await getCurrentUserName()
     const contactos = await IterateContacts(CurrentUserName)
-    console.log(contactos)
+
     if(contactos.length > 0){
       setUserContacts(contactos)
     }else{
