@@ -30,7 +30,6 @@ const Busqueda = () => {
 
   const onFormSubmit = (e) => {
       e.preventDefault();
-
       addContact(contactName) ;
   }
 

@@ -6,7 +6,7 @@ import ListaContactos from '../Contacts/ListaContactos';
 import { IterateContacts,getCurrentUserName } from '../../firebase'
 import { useState } from 'react';
 import { useEffect } from 'react';
-import { IterateChats } from '../../firebase/firestore/iterateChats';
+
 const ContenedorPrincipal = () => {
   const [contacts,setContacts] = useState(undefined)
   const [activeChats, setActiveChats] = useState([])
@@ -22,7 +22,6 @@ const ContenedorPrincipal = () => {
     declareObjects()
   },[])
 
-<<<<<<< HEAD
   if (contacts === undefined ) {
     return (
       <div className='caja-chats'>
@@ -30,15 +29,11 @@ const ContenedorPrincipal = () => {
         <Busqueda/>
       </div>
       <div>
-        Cargando
+        Cargando ...
       </div>
       </div>
     )
   }
-=======
-  
-
->>>>>>> 857b5417da8731cfb3c40fe0268c72bb857f16d5
   return (
     <div className='caja-chats'>
       <div className='contenedor-busqueda'>
@@ -48,7 +43,7 @@ const ContenedorPrincipal = () => {
     {/* Contenedor para los Chats */}
       <div className='contenedor-mensajes'>
         <Routes>
-          <Route path='/' element = {<ListaChats />}/>
+          <Route path='/' element = {<ListaChats Contacts={contacts}  CurrentUserInfo = {currentUser}/>}/>
           <Route path='/Contacts' element = {<ListaContactos Contacts={contacts}  CurrentUserInfo = {currentUser} />}/>
         </Routes>
       </div>

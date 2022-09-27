@@ -11,7 +11,9 @@ export const getActiveChats = async () => {
     //Obtenemos la información del usuario y extraemos sus chats activos
     const userData = userSnapshot.data();
     const userActiveChats = userData.chats;
-
+    if (userActiveChats.length === 0){
+        return []
+    }
     const chatsRef = collection(firestore, "chats");
 
     const q = query(chatsRef, where("id","in",userActiveChats));

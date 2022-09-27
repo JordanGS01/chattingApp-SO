@@ -13,11 +13,12 @@ import ContenedorPrincipal from './components/ContenedorChats/ContenedorPrincipa
 import {NavegationBar} from './components/Navbar/NavegationBar'
 import { Login } from './pages/auth/Login/Login';
 
+import {useContext} from 'react'
 
 function App() {
 
   const [ user ] = useAuthState(auth)
-
+  
   return (
     <>
       {/* Si el usuario no está logueado, se le hace loguearse */}
