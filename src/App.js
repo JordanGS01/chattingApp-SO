@@ -13,6 +13,7 @@ import CajaChats from './components/ContenedorChats/CajaChats'
 import {NavegationBar} from './components/Navbar/NavegationBar'
 import { Login } from './pages/auth/Login/Login';
 import {AudioRecorder} from './components/Audio/audiorecord';
+import {Geolocation} from './components/geolocation/geolocation'
 
 function App() {
 
@@ -28,6 +29,7 @@ function App() {
         <div className='app'>
           <CajaChats />
           <MessagesContainer />
+          <Geolocation></Geolocation>
         </div>
         </>
         :
