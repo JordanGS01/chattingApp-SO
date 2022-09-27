@@ -1,13 +1,27 @@
 
 import {Button} from 'react-bootstrap'
 import fotoVacia from "../../Images/EmptyProfilepicture.png"
-
+import { useContext } from 'react'
+import { ChatContext } from '../../context/ChatContext'
 import  './Chat.css'
-const chat = (props) => {
+import { useState } from 'react'
+const Chat = (props) => {
+  const [messages,setMessages] = useState(props.messages)
+  const [lastmessage,setLastMessage] = useState(messages[messages.length - 1])
+  const {setChat} = useContext(ChatContext)
+
+  const changeChat = () =>{
+    const array = 
+    {
+      id : props.id,
+      members : [props.nombre,props.CurrentUserInfo.user],
+      messages : props.messages
+    }
+    setChat(array) 
+  }
   return (
     <>
-
-    <Button className='seleccionar-chat' variant='light'>
+    <Button className='seleccionar-chat' variant='light' onClick={changeChat}>
     <div className='caja-chat'>
         <img className="foto-perfil-chat" src={props.fotoPerfil ? props.fotoPerfil : fotoVacia} />
         <div className='contenedor-texto'>
@@ -16,11 +30,11 @@ const chat = (props) => {
              {props.nombre} :   
             </div>
             <a className='texto-fecha'>
-              {props.hora}  
+              {lastmessage ? lastmessage.hour : ""}  
             </a>
             </div>
-            <div className='texto-cuerpo'>
-              {props.cuerpoMensaje}
+            <div className='texto-cuerpo' style={{color : lastmessage ? "black" : "gray"}}>
+              {lastmessage ? lastmessage.content  : "No hay mensajes con este usuario"}
             </div>
         </div>
       </div>
@@ -30,4 +44,4 @@ const chat = (props) => {
   )
 }
 
-export default chat
+export default Chat

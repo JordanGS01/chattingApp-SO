@@ -1,5 +1,6 @@
 import { useState } from "react"
 import {Navigate } from "react-router-dom"
+
 import "./CajaContacto.css"
 
 // Bootstrap
@@ -7,9 +8,9 @@ import { Dropdown,Modal,Button,Toast} from 'react-bootstrap'
 
 // Funciones Firebase
 
-import { blockUser,unblockUser,eliminateContact,getActiveChats, addNewChat} from "../../firebase"
+import { blockUser,unblockUser,eliminateContact,getActiveChats, addNewChat, searchUser} from "../../firebase"
 
-
+import { useContext } from "react"
 // Iconos
 import {BsFillTrashFill,BsFillChatFill,BsFillUnlockFill} from 'react-icons/bs'
 import {BiBlock} from 'react-icons/bi'
@@ -17,6 +18,8 @@ import {IoInformationOutline} from 'react-icons/io5'
 import {AiOutlineCheck} from 'react-icons/ai'
 import {MdCancel} from 'react-icons/md'
 import fotoVacia from "../../Images/EmptyProfilepicture.png"
+import { ChatContext } from "../../context/ChatContext"
+
 
 
 
@@ -59,12 +62,39 @@ const CajaContacto = (props) => {
     setBloqueo(false)
     unblockUser(props.nombre)
   }
+  const {chat,setChat} = useContext(ChatContext)
 
+  const existChat = (chatsArray) =>{
+    if (chatsArray === undefined){return}
+    let exist = false
+    chatsArray.forEach((element) => {
+        if(element.members.includes(props.nombre) )
+        {
+          exist = true;
+        }
+      })
+      return exist;
+  }
+  const returnChat = (chatsArray) =>{
+    if (chatsArray === undefined){return}
+    let chat = {}
+    chatsArray.forEach((element) => {
+        if(element.members.includes(props.nombre) )
+        {
+          chat = element;
+        }
+      })
+      return chat;
+  }
   const openChat = async() =>{
     const activeChats =await getActiveChats()
-    if (activeChats.length === 0){
-      addNewChat(props.nombre,props.CurrentUserInfo)
+    if (!existChat(activeChats)){
+      const newChat = await addNewChat(props.nombre,props.CurrentUserInfo)
+      setChat(newChat)
+      setOpeningChat(true)
     }else{
+      const selectedChat = returnChat(activeChats)
+      setChat(selectedChat)
       setOpeningChat(true)
     }
   }
@@ -165,7 +195,7 @@ const CajaContacto = (props) => {
           </Toast>
 
     </>
+
   )
 }
-
 export default CajaContacto
