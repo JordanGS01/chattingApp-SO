@@ -8,7 +8,7 @@ const chat = (props) => {
     <>
 
     <Button className='seleccionar-chat' variant='light'>
-    <div className='caja-chat'>
+      <div className='caja-chat'>
         <img className="foto-perfil-chat" src={props.fotoPerfil ? props.fotoPerfil : fotoVacia} />
         <div className='contenedor-texto'>
           <div className='contenedor-nombre-fecha'>
