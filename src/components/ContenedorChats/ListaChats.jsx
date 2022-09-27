@@ -10,7 +10,7 @@ import { useEffect } from 'react'
 
 import { getActiveChats } from '../../firebase'
 
-const ListaChats = () => {
+const ListaChats = ({Contacts,CurrentUserInfo}) => {
         useEffect(() => {
           getActiveChats();
         }, [])

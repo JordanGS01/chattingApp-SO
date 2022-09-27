@@ -1,13 +1,17 @@
+
+
 import { searchUser } from '..'
 
-export const IterateContacts = async ( userName ) => {
+
+
+export const IterateChats = async ( userName ) => {
 
     try{
     
         const user = await searchUser(userName)
         if (user){
-            const contacts = user[0].contacts
-            return contacts
+            const chats = user[0].chats
+            return chats
         }else{
             return undefined
         }

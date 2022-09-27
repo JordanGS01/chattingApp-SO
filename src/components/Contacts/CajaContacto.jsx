@@ -1,12 +1,13 @@
 import { useState } from "react"
+import {Navigate } from "react-router-dom"
 import "./CajaContacto.css"
 
 // Bootstrap
-import { Dropdown,Modal,Button,Toast,ToastContainer} from 'react-bootstrap'
+import { Dropdown,Modal,Button,Toast} from 'react-bootstrap'
 
 // Funciones Firebase
 
-import { blockUser,unblockUser,eliminateContact} from "../../firebase"
+import { blockUser,unblockUser,eliminateContact,getActiveChats, addNewChat} from "../../firebase"
 
 
 // Iconos
@@ -17,11 +18,12 @@ import {AiOutlineCheck} from 'react-icons/ai'
 import {MdCancel} from 'react-icons/md'
 import fotoVacia from "../../Images/EmptyProfilepicture.png"
 
+
+
 const CajaContacto = (props) => {
-  
+  const [openingChat,setOpeningChat ]= useState(false) 
   // UseState para usuario Bloqueado
   const [bloqueado,setBloqueo] = useState(props.bloqueado)
-
   const [NotificacionDesb,setNotificacionDesb] = useState(false)
   const [addedUserToast, setAddedUserToast] = useState(false)
   // Funciones para el modal de bloqueo
@@ -37,6 +39,8 @@ const CajaContacto = (props) => {
   //Mostrar Notificación de desbloquear usuario
   const notificarDesbloqueo = () => setNotificacionDesb(!NotificacionDesb)
   const notifyEliminateUser = () => setAddedUserToast(!addedUserToast)
+
+
 
   const handleDelete = (e) => {
       setAddedUserToast(true)
@@ -56,9 +60,17 @@ const CajaContacto = (props) => {
     unblockUser(props.nombre)
   }
 
- 
+  const openChat = async() =>{
+    const activeChats =await getActiveChats()
+    if (activeChats.length === 0){
+      addNewChat(props.nombre,props.CurrentUserInfo)
+    }else{
+      setOpeningChat(true)
+    }
+  }
   return (
     <>
+    {openingChat && <Navigate to="/" replace={true} />}
     <div className='seleccionar-contacto' variant='light' style={{backgroundColor: bloqueado ? "	#8B0000" : "white"}}>
       <div className="form-contactos"  style={{backgroundColor: bloqueado ? "	#8B0000" : "white"}}>
             <img className="foto-perfil-chat" src={bloqueado ? fotoVacia : props.fotoPerfil ? props.fotoPerfil :fotoVacia } />
@@ -69,7 +81,7 @@ const CajaContacto = (props) => {
               <Dropdown.Toggle variant="light" >
               </Dropdown.Toggle>
               <Dropdown.Menu className='menu-opciones-contactos'>
-                  <Dropdown.Item className= 'opciones-menu-contacto'> 
+                  <Dropdown.Item className= 'opciones-menu-contacto' onClick={openChat}> 
                       <BsFillChatFill className='icono-menu-abrirMensaje'/> 
                       Abrir Chat
                   </Dropdown.Item >

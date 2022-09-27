@@ -2,25 +2,18 @@
 import CajaContacto from './CajaContacto'
 import { useState,useEffect } from 'react'
 import { IterateContacts,getCurrentUserName } from '../../firebase'
-import { useCollectionData } from 'react-firebase-hooks/firestore'
 
 
-const ListaContactos = () => {
 
-  const [userContacts,setUserContacts] = useState(undefined)
+const ListaContactos = ({Contacts,CurrentUserInfo}) => {
 
+  const [userContacts,setUserContacts] = useState([])
+  
   const createContact = async() =>{
-    const CurrentUserName = await getCurrentUserName()
-    const contactos = await IterateContacts(CurrentUserName)
-
-    if(contactos.length > 0){
-      setUserContacts(contactos)
-    }else{
-      setUserContacts(undefined)
-    }
+    setUserContacts(Contacts)
   }
   useEffect(() => {
-    createContact()
+     createContact()
   },[])
   if (userContacts === undefined ){
     return (
@@ -39,7 +32,8 @@ const ListaContactos = () => {
         <CajaContacto
             nombre = {contact.userName}
             fotoPerfil = {""}
-            bloqueado = {contact.blocked} />
+            bloqueado = {contact.blocked} 
+            CurrentUserInfo = {CurrentUserInfo}/>
       )
       }
     ) 

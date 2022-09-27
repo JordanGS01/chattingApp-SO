@@ -28,9 +28,6 @@ export const blockUser = async ( userName ) => {
                 }
             }
         )
-        console.log(ContactsArray)
-
-        
         await updateDoc(userRef, {
             contacts: ContactsArray
         });
