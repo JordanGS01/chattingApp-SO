@@ -3,6 +3,7 @@ import { Message } from "./Message"
 import { useContext,useState,useEffect } from "react"
 import { ChatContext } from "../../context/ChatContext"
 import {getCurrentUser} from '../../firebase'
+import "./MessagesContainer.css"
 export const MessagesContainer = () => {
   
   const {chat} = useContext(ChatContext)
@@ -41,16 +42,17 @@ export const MessagesContainer = () => {
   return (
     
     <div className="nes-container is-rounded" style={{borderLeft : "0px",borderRight : "0px"}}>
-      <button onClick={senderOrReceiver}>
-          dasdas
-      </button>
       <section className="message-list" >
         {chat.messages.map((message) =>{
-          return (<Message user={returnSenderName(message)} content={message.content} sender={senderOrReceiver(message)}/>)
+          return (
+          <Message user={returnSenderName(message)} 
+          content={message.content} 
+          sender={senderOrReceiver(message)}
+          // style = {{marginLeft: senderOrReceiver(message) ? "100px": "0px"}}
+          />)
         })
-        }
+        } 
       </section>
-
       <InputMessageBar CurrentUser = {currentUser}/>
     </div>
   )

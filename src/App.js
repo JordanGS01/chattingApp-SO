@@ -12,12 +12,12 @@ import { MessagesContainer } from './components/Chat/MessagesContainer';
 import ContenedorPrincipal from './components/ContenedorChats/ContenedorPrincipal'
 import {NavegationBar} from './components/Navbar/NavegationBar'
 import { Login } from './pages/auth/Login/Login';
-
-
+import {useContext} from 'react'
+import {ChatContext} from './context/ChatContext'
 function App() {
   
   const [ user ] = useAuthState(auth)
-  
+  const {chat} = useContext(ChatContext) 
   return (
 <>
       {/* Si el usuario no está logueado, se le hace loguearse */}
@@ -28,7 +28,12 @@ function App() {
         <NavegationBar />
         <div className='app'>
           <ContenedorPrincipal />
-          <MessagesContainer />
+          {chat.id ?
+          <MessagesContainer />:
+          <div>
+            Empieza a chatear ya!!
+          </div>
+          } 
         </div>
         
         </>
