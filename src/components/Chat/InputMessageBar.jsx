@@ -34,14 +34,18 @@ export const InputMessageBar = ({CurrentUser}) => {
 
     return (
         <form className='InputMessageBar-Form' onSubmit={onFormSubmit}>
-            <button 
-                type="submit" 
+            <button
+                name='camera'
+                id='camera'
+                //onClick={}
                 className="nes-btn is-success"
             >
                 <BsCameraFill style={{backgroundColor:"#98cc44"}}/>
             </button>
-            <button 
-                type="submit" 
+            <button
+                name='microphone'
+                id='microphone'
+                //onClick={}
                 className="nes-btn is-success"
             >
                 <FaMicrophone style={{backgroundColor:"#98cc44"}}/>
@@ -54,6 +58,7 @@ export const InputMessageBar = ({CurrentUser}) => {
                 className="nes-input"
                 onChange={onInputChange}
             />
+
             <button 
                 type="submit" 
                 className="nes-btn is-success"
