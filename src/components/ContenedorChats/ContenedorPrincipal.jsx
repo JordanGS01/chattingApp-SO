@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import './ContenedorPrincipal.css'
 import ListaChats from './ListaChats';
 import ListaContactos from '../Contacts/ListaContactos';
-import { IterateContacts,getCurrentUserName, getActiveChats } from '../../firebase'
+import { IterateContacts,getCurrentUser, getActiveChats } from '../../firebase'
 import { useState } from 'react';
 import { useEffect } from 'react';
 
@@ -13,7 +13,7 @@ const ContenedorPrincipal = () => {
   const [currentUser,setCurrentUser] = useState(undefined)
 
   const declareObjects = async() => {
-      const currentUserData = await getCurrentUserName()
+      const currentUserData = await getCurrentUser()
       const contactsData = await IterateContacts(currentUserData.user)
       const activeChatsData = await getActiveChats()
       setActiveChats(activeChatsData)
