@@ -1,7 +1,6 @@
 
 import CajaContacto from './CajaContacto'
 import { useState,useEffect } from 'react'
-import { IterateContacts,getCurrentUserName } from '../../firebase'
 
 
 
@@ -17,7 +16,7 @@ const ListaContactos = ({Contacts,CurrentUserInfo}) => {
   },[])
   if (userContacts === undefined ){
     return (
-      < div>
+      < div >
             No se han Agregado Contactos
         </div>
     )

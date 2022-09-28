@@ -10,7 +10,7 @@ const Chat = (props) => {
   const [lastmessage,setLastMessage] = useState(messages[messages.length - 1])
   const {chat,setChat} = useContext(ChatContext)
   const [changeCurrentChatStyle,setChangeCurrentChatStyle] = useState(false)
-
+  const [lastText,setLastText] = useState("")
   const changeChatStyle= () =>{
     if (props.id === chat.id){
       setChangeCurrentChatStyle(true)
@@ -19,8 +19,17 @@ const Chat = (props) => {
     }
 
   }
+  const lastTextFunction = () =>{
+    if(lastmessage.content.length > 25 &&  lastmessage.content.length > 0) {
+      setLastText(lastmessage.content.slice(0,12)+ "...")
+    }
+    else{
+      setLastText(lastmessage.content.slice(0,14))
+    }
+  }
   useEffect(() => {
     changeChatStyle()
+    lastTextFunction()
   },[chat]) 
   const changeChat = () =>{
     const array = 
@@ -47,7 +56,7 @@ const Chat = (props) => {
             </a>
             </div>
             <div className='texto-cuerpo' style={{color : lastmessage ? "black" : "gray"}}>
-              {lastmessage ? lastmessage.content  : "No hay mensajes con este usuario"}
+              {lastmessage ? lastText  : "No hay mensajes con este usuario"}
             </div>
         </div>
       </div>

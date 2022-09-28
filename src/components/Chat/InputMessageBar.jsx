@@ -3,7 +3,7 @@ import { useForm } from '../../hooks/useForm'
 import {FaMicrophone} from 'react-icons/fa'
 import {BsCameraFill} from 'react-icons/bs'
 import './InputMessageBar.css'
-import { useContext ,useState} from "react"
+import { useContext ,useRef} from "react"
 import { ChatContext } from "../../context/ChatContext"
 import { addMessage } from '../../firebase'
 
@@ -15,13 +15,13 @@ export const InputMessageBar = ({CurrentUser}) => {
     
     const { messageContent } = formState;
     const {chat} = useContext(ChatContext)
-
+    const dummy = useRef()
     const onFormSubmit = (e) => {
         e.preventDefault();
         //ACA SE REALIZA ALGUNA ACCION CON EL INPUT
         const d = new Date()
         const currentDate = d.getHours() + ":" + d.getMinutes()
-
+        dummy.current.scrollIntoView({ behavior: 'smooth' })
         const newMessage = {
             content: messageContent,
             hour : currentDate,
@@ -29,6 +29,7 @@ export const InputMessageBar = ({CurrentUser}) => {
             sender : CurrentUser.user
         }
         addMessage(chat.id,newMessage)
+        dummy.current.scrollIntoView({ behavior: 'smooth' })
         onResetForm();
     }
 
@@ -60,7 +61,9 @@ export const InputMessageBar = ({CurrentUser}) => {
             >
                 Enviar
             </button>
+        <div ref={dummy}>
 
+        </div>
 
         </form>
     )

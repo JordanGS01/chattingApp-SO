@@ -13,7 +13,8 @@ import { signOutUser } from '../../firebase'
 
 export const NavegationBar = () => {
     return (
-      <Navbar className='navbar' collapseOnSelect expand="lg" bg="light" variant="light">
+
+      <Navbar className='navbar-component' collapseOnSelect expand="lg" bg="light" variant="light">
             <Container className='container-navbar'>
             <img src={Logo} className='imglogo' alt="Logo"/>
               <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -23,11 +24,7 @@ export const NavegationBar = () => {
 
                 </Nav>
                 <Nav>
-                  <Nav.Link href="#Aboutus">About Us</Nav.Link>
-                  <Nav.Link eventKey={2} href="#Community">
-                    Community (WIP)
-                  </Nav.Link>
-                  
+
                   <img src={User} className='imgUser' alt="Logo"/>
                   <span className="simpletext">Username <br></br> <p className="statusOnline" onClick={signOutUser}> Log Out</p> </span> 
                  
@@ -35,7 +32,7 @@ export const NavegationBar = () => {
               </Navbar.Collapse>
             </Container>
           </Navbar>
-      
+
     )
   }
   

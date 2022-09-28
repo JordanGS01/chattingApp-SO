@@ -1,0 +1,13 @@
+.message{
+    border: 2px solid black;
+    max-width: 75%;
+    width: fit-content;
+
+}
+.balloon{
+    border: 12px;
+    border-radius: 50px;
+    margin-bottom: 5%;
+    padding: 10px;
+    line-break: strict;
+}
