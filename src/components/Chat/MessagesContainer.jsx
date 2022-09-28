@@ -46,17 +46,18 @@ export const MessagesContainer = () => {
   useEffect (() => {
       declareData()
       getChatDataRealtime(chat.id,setChatMessages);
+
     },[chat])
   
   if(chat.id === undefined){return<></>}
   
   return (
-    
+
     <div className="nes-container is-rounded" style={{borderLeft : "0px",borderRight : "0px"}}>
       <section className="message-list" >
         {chatMessages.map((message) =>{
           return (<Message user={returnSenderName(message)} content={message.content} sender={senderOrReceiver(message)}/>)
-        })
+        }) 
         } 
       </section>
       <InputMessageBar CurrentUser = {currentUser} />

@@ -16,6 +16,10 @@ import { Geolocation } from './components/geolocation/Geolocation'
 import { useContext } from 'react'
 import { ChatContext } from './context/ChatContext'
 
+import { useContext } from 'react'
+import { ChatContext } from './context/ChatContext'
+import { AiOutlinePlusSquare } from 'react-icons/ai'
+import { Button } from 'react-bootstrap';
 function App() {
   
   const [ user ] = useAuthState(auth)
@@ -32,8 +36,12 @@ function App() {
           <ContenedorPrincipal />
           {chat.id ?
           <MessagesContainer />:
-          <div>
+          <div className='no-Chat-container'>
             Empieza a chatear ya!!
+            <Button variant='light' className='no-Chat-contacts-button' href='/Contacts'>
+                <AiOutlinePlusSquare/>
+                Go to your contacts!
+            </Button>
           </div>
           } 
         </div>

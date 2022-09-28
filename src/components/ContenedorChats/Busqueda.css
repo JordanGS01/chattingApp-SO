@@ -87,3 +87,16 @@
     justify-content: flex-start;
 }
 
+.modal-addContact{
+    max-width: fit-content;
+    height: fit-content;
+    margin-left: 35%;
+    margin-top: 10%;
+    border-radius: 50px;
+    border: 12px solid rgb(54, 52, 52);
+    
+}
+.submitContactButton{
+    display: flex;
+    justify-content: space-evenly;
+}

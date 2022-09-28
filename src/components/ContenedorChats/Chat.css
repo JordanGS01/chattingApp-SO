@@ -46,7 +46,7 @@
 
     
     /* ****ARREGLAR**** */
-    width: 18vw;
+    
 }
 
 .texto-nombre{
@@ -63,6 +63,7 @@
 .texto-fecha{
     text-align: right;
     font-size: xx-small;
+    margin-right: 5%;
 
 }
 .texto-cuerpo{

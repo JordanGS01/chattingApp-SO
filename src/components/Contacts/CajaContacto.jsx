@@ -153,7 +153,7 @@ const CajaContacto = (props) => {
         </Modal.Footer>
      </Modal>
      {/* Modal de eliminar Contacto */}
-     <Modal className = 'modal-bloqueo' show= {showEliminateUser} onHide = {() => closeEliminateUser}>
+     <Modal className = 'modal-eliminar' show= {showEliminateUser} onHide = {() => closeEliminateUser}>
         <Modal.Header>
           <Modal.Title>¿Estas seguro que quieres Eliminar a este usuario?</Modal.Title>
         </Modal.Header>
