@@ -20,7 +20,7 @@ export const getActiveChats = async () => {
     const querySnapshot = await getDocs(q);
 
     const userActiveChatsData = querySnapshot.docs.map( (doc) => {
-        return doc.data();
+    return doc.data();
     } )
 
     return userActiveChatsData;
