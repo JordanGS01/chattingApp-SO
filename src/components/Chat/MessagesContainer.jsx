@@ -59,7 +59,7 @@ export const MessagesContainer = () => {
         })
         } 
       </section>
-      <InputMessageBar CurrentUser = {currentUser}/>
+      <InputMessageBar CurrentUser = {currentUser} />
     </div>
   )
 }

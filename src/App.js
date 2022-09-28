@@ -1,7 +1,6 @@
 
 // IMPORTS REFERENTES A FIREBASE (TERCEROS)
 import { useAuthState } from 'react-firebase-hooks/auth'
-import { useCollectionData } from 'react-firebase-hooks/firestore'
 
 // IMPORTS ENTIDADES FIREBASE
 import { auth } from './firebase'
@@ -10,10 +9,13 @@ import { auth } from './firebase'
 import './App.css';
 import { MessagesContainer } from './components/Chat/MessagesContainer';
 import ContenedorPrincipal from './components/ContenedorChats/ContenedorPrincipal'
-import {NavegationBar} from './components/Navbar/NavegationBar'
+import { NavegationBar } from './components/Navbar/NavegationBar'
 import { Login } from './pages/auth/Login/Login';
-import {useContext} from 'react'
-import {ChatContext} from './context/ChatContext'
+import { Geolocation } from './components/geolocation/Geolocation'
+
+import { useContext } from 'react'
+import { ChatContext } from './context/ChatContext'
+
 function App() {
   
   const [ user ] = useAuthState(auth)
@@ -35,7 +37,8 @@ function App() {
           </div>
           } 
         </div>
-        
+
+        <Geolocation />
         </>
         :
         

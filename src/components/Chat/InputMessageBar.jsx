@@ -7,6 +7,9 @@ import { useContext ,useState} from "react"
 import { ChatContext } from "../../context/ChatContext"
 import { addMessage } from '../../firebase'
 
+import {BiSend,BiMicrophone} from 'react-icons/bi'
+import {MdFileUpload} from 'react-icons/md'
+import {AudioRecorder} from '../Audio/audiorec'
 
 export const InputMessageBar = ({CurrentUser}) => {
     const { formState, onInputChange, onResetForm } = useForm({
@@ -63,9 +66,18 @@ export const InputMessageBar = ({CurrentUser}) => {
                 type="submit" 
                 className="nes-btn is-success"
             >
-                Enviar
+                <BiSend style={{backgroundColor: "#98cc44" }}></BiSend>
             </button>
 
+
+            <label for='audio' class="nes-btn" style={{backgroundColor:"#98cc44"}}>
+                <span style={{backgroundColor:"#98cc44"}}>
+                <MdFileUpload style={{backgroundColor: "#98cc44" }}></MdFileUpload>
+                </span>
+            </label>
+            
+            <input name='audio' id='audio' type="file"></input>
+            <AudioRecorder />
 
         </form>
     )
