@@ -16,6 +16,10 @@ export * from './firestore/IterateContacts'
 export * from './firestore/blockUser'
 export * from './firestore/unblockUser'
 export * from './firestore/eliminateContact'
-export * from './firestore/getCurrentUserName'
+export * from './firestore/getCurrentUser'
 export * from './firestore/getActiveChats'
 export * from './firestore/addNewChat'
+export * from './firestore/addMessage'
+
+//FIRESTORE REALTIME EXPORTS
+export * from './firestore/realtime/getChatDataRealtime'

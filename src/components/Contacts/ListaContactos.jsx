@@ -7,7 +7,7 @@ import { IterateContacts,getCurrentUserName } from '../../firebase'
 
 const ListaContactos = ({Contacts,CurrentUserInfo}) => {
 
-  const [userContacts,setUserContacts] = useState([])
+  const [userContacts,setUserContacts] = useState(undefined)
   
   const createContact = async() =>{
     setUserContacts(Contacts)

@@ -19,7 +19,7 @@ export const addNewChat = async (userName,currentObject) => {
         }
         setDoc(ChatRef,newChat)
 
-        const CurrentRef = doc(firestore, "users", auth.currentUser.uid);
+        const CurrentRef = doc(firestore, "users", auth.currentUser.uid );
         const contactRef = doc(firestore, "users", user[0].uid);
 
         await updateDoc(CurrentRef, {
@@ -29,6 +29,7 @@ export const addNewChat = async (userName,currentObject) => {
             chats: arrayUnion(uidChat)
         });
         setDoc(ChatRef,newChat)
+        return newChat
     }catch(error){
         console.log(error);
     }

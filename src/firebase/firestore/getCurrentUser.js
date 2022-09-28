@@ -3,7 +3,7 @@ import { doc, getDoc } from 'firebase/firestore'
 import { firestore } from '..'
 import { auth } from '..'
 
-export const getCurrentUserName = async() =>{
+export const getCurrentUser = async() =>{
     try{
         const currentUserId = auth.currentUser.uid;
         const userRef = doc(firestore, "users", currentUserId);
