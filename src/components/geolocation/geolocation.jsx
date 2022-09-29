@@ -72,7 +72,7 @@ export const Geolocation = () => {
                     <Modal.Title>Weather Conditions</Modal.Title>
                 </Modal.Header>
     
-                <Modal.Body>{<TiWeatherPartlySunny size={50}></TiWeatherPartlySunny>} Weather:{data.weather[0].description} <br></br> Temperature:{parseInt(data.main.temp-273.15)}  <br></br> Humidity:{data.main.humidity}</Modal.Body>
+                <Modal.Body>{<TiWeatherPartlySunny size={50}></TiWeatherPartlySunny>} Weather:{data.weather[0].description} <br></br> Temperature:{parseInt(data.main.temp-273.15)} Celsius <br></br> Humidity:{data.main.humidity}</Modal.Body>
                 <Modal.Footer>
                     <Button variant="nes-btn is-secondary" onClick={handleClose}>
                         Close
