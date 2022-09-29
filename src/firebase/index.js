@@ -28,3 +28,4 @@ export * from './firestore/realtime/getChatDataRealtime'
 //FIREBASE STORAGE EXPORTS
 export * from './storage/uploadAudio'
 export * from './storage/getDownloadUrlFromStorage'
+export * from './storage/uploadImage'

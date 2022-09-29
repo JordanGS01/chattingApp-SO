@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from "react"
 
-import { getDownloadUrlFromStorage } from '../../firebase'
+import { getDownloadUrlFromStorage } from '../../../firebase'
 
 
 export const AudioMessage = ({ content, hour, sender, user }) => {
@@ -10,7 +10,6 @@ export const AudioMessage = ({ content, hour, sender, user }) => {
 
     const setTheDownloadUrl = async () => {
         const downloadUrl = await getDownloadUrlFromStorage(content);
-        console.log(downloadUrl)
         setUrl(downloadUrl);
     }
 
