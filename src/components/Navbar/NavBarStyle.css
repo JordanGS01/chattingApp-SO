@@ -1,4 +1,20 @@
-
+.modal-showBot{
+    border-radius: 50px;
+    border : 8px solid black;
+    background-color : gray;
+    margin-left: 40%;
+    margin-top: 15%;
+    width: fit-content;
+    height: fit-content;
+}
+.container-navbar{
+    width: inherit;
+    background-color: #f8f9fa;
+}
+.input-reminder{
+    width: 100%;
+    margin-left: 0%;
+}   
 .navbar-component{
     border: 4px solid black              ;
     justify-content: space-between;
@@ -25,12 +41,7 @@ li,a,button{
     margin-right: 12px;
     border-radius: 50%;
 }
-.container-navbar{
-    width: inherit;
-    background-color: #f8f9fa;
-    
 
-}
 
 .statusOnline{
     color: blue;

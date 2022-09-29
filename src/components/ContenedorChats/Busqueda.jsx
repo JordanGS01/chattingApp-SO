@@ -26,11 +26,12 @@ const Busqueda = () => {
 
 
   const closeAddContact = () => setAddContact(false)
-  const openAddContact = () => setAddContact(true)
+  const openAddContact = () => setAddContact(true)  
 
-  const onFormSubmit = (e) => {
+  const onFormSubmit = async(e) => {
       e.preventDefault();
-      addContact(contactName) ;
+      await addContact(contactName) 
+      window.location.reload(false);
   }
 
   return (
@@ -64,7 +65,7 @@ const Busqueda = () => {
           <Button 
             className='boton-Contactos'
             variant='light'
-            // onClick={() => window.location.reload(false)}
+
           >
             
             <AiOutlineContacts/>

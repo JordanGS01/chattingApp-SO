@@ -33,7 +33,7 @@ const CajaContacto = (props) => {
   const [MostrarPopUpBloqueo,setPopUpBloqueo] = useState(false)
   const cerrarPopUpBloqueo = () => setPopUpBloqueo(false)
   const abrirPopUpBloqueo = () => setPopUpBloqueo(true)
-  
+  const [messages,setMessages] = useState("")
 
   const [showEliminateUser,setEliminateUser] = useState(false)
 
@@ -43,13 +43,18 @@ const CajaContacto = (props) => {
   const notificarDesbloqueo = () => setNotificacionDesb(!NotificacionDesb)
   const notifyEliminateUser = () => setAddedUserToast(!addedUserToast)
 
+  const [stats,setStats] = useState(false) 
 
-
+  const openShowStats = () => {
+    setStats(true) 
+  }
+  const closeShowStats = () => setStats(false)
   const handleDelete = (e) => {
       setAddedUserToast(true)
       setEliminateUser(false)
       eliminateContact()
   }
+
 
   const bloquearUsuario = async() => {
       setPopUpBloqueo(false)
@@ -75,6 +80,7 @@ const CajaContacto = (props) => {
       })
       return exist;
   }
+
   const returnChat = (chatsArray) =>{
     if (chatsArray === undefined){return}
     let chat = {}
@@ -123,7 +129,7 @@ const CajaContacto = (props) => {
                       {bloqueado ? <BsFillUnlockFill className='icono-menu'/>: <BiBlock className='icono-menu'/> }
                       {bloqueado ?  "Desbloquear usuario": "bloquear Usuario" }
                   </Dropdown.Item>
-                  <Dropdown.Item className= 'opciones-menu-contacto' > 
+                  <Dropdown.Item className= 'opciones-menu-contacto' onClick={openShowStats} > 
                       <IoInformationOutline className='icono-contacto-info'/>  
                       Informacion
                   </Dropdown.Item>
@@ -140,7 +146,9 @@ const CajaContacto = (props) => {
         <Modal.Header>
           <Modal.Title>¿Estas seguro que quieres Bloquear a este usuario?</Modal.Title>
         </Modal.Header>
-        <Modal.Body style={{textIndent : "10%", border:"0px"}}>Al bloquear este usuario no podras enviarle mensajes nuevos, ni este podra responderte  </Modal.Body>
+        <Modal.Body style={{textIndent : "10%", border:"0px"}}>
+          Al bloquear este usuario no podras enviarle mensajes nuevos, ni este podra responderte
+            </Modal.Body>
         <Modal.Footer className= "contenedor-botones-modal-bloqueo">
 
           <Button variant="success" style={{backgroundColor: "green" }} onClick={bloquearUsuario}>
@@ -169,7 +177,29 @@ const CajaContacto = (props) => {
 
         </Modal.Footer>
      </Modal>
+          {/* Modal de stats */}
+          <Modal className = 'modal-bloqueo' show= {stats} onHide = {() => closeShowStats}>
+        <Modal.Header>
+          <Modal.Title>Estadísticas de usuario</Modal.Title>
+        </Modal.Header>
+        <Modal.Body style={{textIndent : "10%", border:"0px"}}>
+        Contactos : {props.CurrentUserInfo.contacts.length}
+        <br></br>
+        Chats : {props.CurrentUserInfo.chats.length}
+          </Modal.Body>
+        <Modal.Footer className= "contenedor-botones-modal-bloqueo">
+
+          <Button variant="danger" onClick={closeShowStats} style={{backgroundColor: "red" }}>
+            <MdCancel style={{backgroundColor: "red" }} />
+          </Button>
+
+        </Modal.Footer>
+     </Modal>
     </div>
+
+
+
+    
           {/* Notificación de Desbloqueo */}
           <Toast 
           className = "toast-desbloqueo"

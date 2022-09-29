@@ -8,7 +8,7 @@ html *
     font-family: Kongtext, sans-serif;
 }
 body{
-   background-image: url('./Images/background.jpg');
+   background-image: url('./Images/background.png');
     background-repeat: no-repeat;
     background-attachment: fixed; 
     background-size: 100% 100%;

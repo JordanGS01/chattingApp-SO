@@ -14,12 +14,9 @@ export const MessagesContainer = () => {
   const [chatMessages, setChatMessages] = useState(chat.messages?chat.messages:{});
 
   const [currentUser,setCurrentUser] = useState()
-  
+
   let sender = ""
 
-  const userIsBlocked = () =>{
-    
-  }
   const declareData = async() =>{
     const currentUserData = await getCurrentUser()
     setCurrentUser(currentUserData)
