@@ -4,11 +4,11 @@ import {Navigate } from "react-router-dom"
 import "./CajaContacto.css"
 
 // Bootstrap
-import { Dropdown,Modal,Button,Toast} from 'react-bootstrap'
+import { Dropdown, Modal, Button, Toast} from 'react-bootstrap'
 
 // Funciones Firebase
 
-import { blockUser,unblockUser,eliminateContact,getActiveChats, addNewChat, searchUser} from "../../firebase"
+import { blockUser, unblockUser, eliminateContact, getActiveChats, addNewChat, searchUser} from "../../firebase"
 
 import { useContext } from "react"
 // Iconos

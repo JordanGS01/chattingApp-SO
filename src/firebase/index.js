@@ -21,6 +21,7 @@ export * from './firestore/getCurrentUser'
 export * from './firestore/getActiveChats'
 export * from './firestore/addNewChat'
 export * from './firestore/addMessage'
+export * from './firestore/deleteMessage'
 
 //FIRESTORE REALTIME EXPORTS
 export * from './firestore/realtime/getChatDataRealtime'

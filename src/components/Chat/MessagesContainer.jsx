@@ -64,6 +64,8 @@ export const MessagesContainer = () => {
             sender = { senderOrReceiver(message) }
             hour = { message.hour }
             type = { message.type }
+            chatId ={ chat.id }
+            senderName = { currentUser?.user }
           />)
         }) 
         } 

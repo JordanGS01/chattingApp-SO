@@ -6,7 +6,7 @@ import { ImagesMessage } from "./MessagesContainers/ImagesMessage"
 import { TextMessage } from './MessagesContainers/TextMessage'
 
 
-export const Messages = ({ type, user, content, sender, hour }) => {
+export const Messages = ({ type, user, content, sender, hour, chatId, senderName }) => {
 
   if( type === 'text' ){
     return (
@@ -15,6 +15,9 @@ export const Messages = ({ type, user, content, sender, hour }) => {
         content={content}
         sender={sender}
         hour={hour}
+        type={type}
+        chatId={chatId}
+        senderName={senderName}
       />
     )
   }
@@ -25,6 +28,9 @@ export const Messages = ({ type, user, content, sender, hour }) => {
         content={content}
         sender={sender}
         hour={hour}
+        type={type}
+        chatId={chatId}
+        senderName={senderName}
       />
     )
   }
@@ -36,6 +42,7 @@ export const Messages = ({ type, user, content, sender, hour }) => {
         sender={sender}
         hour={hour}
         type={type}
+        chatId={chatId}
       />
     )
   }
@@ -47,6 +54,7 @@ export const Messages = ({ type, user, content, sender, hour }) => {
         sender={sender}
         hour={hour}
         type={type}
+        chatId={chatId}
       />
     )
   }
