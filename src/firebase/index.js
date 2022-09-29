@@ -2,6 +2,7 @@
 //INSTANCES EXPORTS
 export * from './instances/firestorage'
 export * from './instances/auth'
+export * from './instances/storage'
 
 //AUTHENTICATION EXPORTS
 export * from './authentication/signUp'
@@ -23,3 +24,6 @@ export * from './firestore/addMessage'
 
 //FIRESTORE REALTIME EXPORTS
 export * from './firestore/realtime/getChatDataRealtime'
+
+//FIREBASE STORAGE EXPORTS
+export * from './storage/uploadAudio'

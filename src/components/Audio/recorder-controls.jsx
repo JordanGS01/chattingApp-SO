@@ -1,14 +1,29 @@
 import { formatMinutes, formatSeconds } from "./utils/format-time";
 import {BiMicrophone} from 'react-icons/bi'
 
-export default function RecorderControls({ recorderState, handlers }) {
+import useRecordingsList from "./hooks/use-recordings-list";
+import { uploadAudio } from '../../firebase'
+import { useEffect } from "react";
+
+export default function RecorderControls({ recorderState, handlers, user, chatId, audio }) {
   const { recordingMinutes, recordingSeconds, initRecording } = recorderState;
   const { startRecording, saveRecording, cancelRecording } = handlers;
+  const { recordings, deleteAudio } = useRecordingsList(audio);
+
+  useEffect(() => {
+    if(recordings !== undefined) { 
+      if(recordings.length !== 0) {
+        uploadAudio(recordings[0], user, chatId);
+        deleteAudio(recordings[0].key);
+      }
+    }
+  }, [ recordings ])
+  
 
   return (
     <div className="controls-container" style={{display: "flex"}}>
       <div className="recorder-display" style={{display: "flex"}}>
-      <button class="nes-btn is-success" title="Start recording" style={{marginRight:'10px'}} onClick={startRecording}>
+      <button className="nes-btn is-success" title="Start recording" style={{marginRight:'10px'}} onClick={startRecording}>
             <BiMicrophone style={{backgroundColor: "#98cc44"}}></BiMicrophone>
 
         </button>
@@ -20,7 +35,7 @@ export default function RecorderControls({ recorderState, handlers }) {
         </div>
         {initRecording && (
           <div className="cancel-button-container" style={{display: "flex"}}>
-            <button class="nes-btn is-error" title="Cancel recording" onClick={cancelRecording}>
+            <button className="nes-btn is-error" title="Cancel recording" onClick={cancelRecording}>
               Cancel
             </button>
           </div>
@@ -29,12 +44,12 @@ export default function RecorderControls({ recorderState, handlers }) {
       <div className="start-button-container">
         {initRecording ? (
           <button
-            class="nes-btn is-error"
+            className="nes-btn is-error"
             title="Save recording"
             disabled={recordingSeconds === 0}
             onClick={saveRecording}
           >
-            Save
+            Send
           </button>
         ) : (
           <div></div>

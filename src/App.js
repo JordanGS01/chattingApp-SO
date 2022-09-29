@@ -1,4 +1,7 @@
 
+//IMPORTS PORPIOS DE REACT
+import { useContext } from 'react'
+
 // IMPORTS REFERENTES A FIREBASE (TERCEROS)
 import { useAuthState } from 'react-firebase-hooks/auth'
 
@@ -13,10 +16,7 @@ import { NavegationBar } from './components/Navbar/NavegationBar'
 import { Login } from './pages/auth/Login/Login';
 import { Geolocation } from './components/geolocation/Geolocation'
 
-import { useContext } from 'react'
-import { ChatContext } from './context/ChatContext'
 
-import { useContext } from 'react'
 import { ChatContext } from './context/ChatContext'
 import { AiOutlinePlusSquare } from 'react-icons/ai'
 import { Button } from 'react-bootstrap';
@@ -24,8 +24,9 @@ function App() {
   
   const [ user ] = useAuthState(auth)
   const {chat} = useContext(ChatContext) 
+
   return (
-<>
+  <>
       {/* Si el usuario no está logueado, se le hace loguearse */}
       {
         user ?
@@ -52,7 +53,7 @@ function App() {
         
         <Login />
       }
-</>
+  </>
   );
 }
 

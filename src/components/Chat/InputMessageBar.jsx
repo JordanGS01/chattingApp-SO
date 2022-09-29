@@ -11,20 +11,21 @@ import {BiSend,BiMicrophone} from 'react-icons/bi'
 import {MdFileUpload} from 'react-icons/md'
 import {AudioRecorder} from '../Audio/audiorec'
 
-export const InputMessageBar = ({CurrentUser}) => {
+export const InputMessageBar = ({ CurrentUser }) => {
     const { formState, onInputChange, onResetForm } = useForm({
         messageContent:"",
     });
     
     const { messageContent } = formState;
-    const {chat} = useContext(ChatContext)
-    const dummy = useRef()
+    const { chat } = useContext(ChatContext)
+
     const onFormSubmit = (e) => {
         e.preventDefault();
-        //ACA SE REALIZA ALGUNA ACCION CON EL INPUT
+        
+
         const d = new Date()
         const currentDate = d.getHours() + ":" + d.getMinutes()
-        dummy.current.scrollIntoView({ behavior: 'smooth' })
+
         const newMessage = {
             content: messageContent,
             hour : currentDate,
@@ -32,11 +33,12 @@ export const InputMessageBar = ({CurrentUser}) => {
             sender : CurrentUser.user
         }
         addMessage(chat.id,newMessage)
-        dummy.current.scrollIntoView({ behavior: 'smooth' })
+
         onResetForm();
     }
 
     return (
+        <div className='InputMessageBar-Form'>
         <form className='InputMessageBar-Form' onSubmit={onFormSubmit}>
             <button
                 name='camera'
@@ -49,7 +51,6 @@ export const InputMessageBar = ({CurrentUser}) => {
             <button
                 name='microphone'
                 id='microphone'
-                //onClick={}
                 className="nes-btn is-success"
             >
                 <FaMicrophone style={{backgroundColor:"#98cc44"}}/>
@@ -69,19 +70,15 @@ export const InputMessageBar = ({CurrentUser}) => {
             >
                 <BiSend style={{backgroundColor: "#98cc44" }}></BiSend>
             </button>
-        <div ref={dummy}>
 
-        </div>
-
-            <label for='audio' class="nes-btn" style={{backgroundColor:"#98cc44"}}>
+            <label htmlFor='audio' className="nes-btn" style={{backgroundColor:"#98cc44"}}>
                 <span style={{backgroundColor:"#98cc44"}}>
                 <MdFileUpload style={{backgroundColor: "#98cc44" }}></MdFileUpload>
                 </span>
             </label>
-            
-            <input name='audio' id='audio' type="file"></input>
-            <AudioRecorder />
-
+            {/* <input name='audio' id='audio' type="file"></input> */}
         </form>
+        <AudioRecorder user={CurrentUser?.user} chatId={chat?.id}/>
+        </div>
     )
 }

@@ -44,13 +44,11 @@ const geolocalizacion=()=>{
     navigator.geolocation.getCurrentPosition(function(position){
         const lat=position.coords.latitude
         const lgn=position.coords.longitude
-        console.log(lgn);
-        console.log(lat);
     });
     fetch('https://api.openweathermap.org/data/2.5/weather?lat=0&lon=0&appid=88d2ebc8d41b468af33c8d402ccc429c').then(function(response){
         return response.json();
     }).then( function(obj) {
-        console.log(obj)
+        //console.log(obj)
     }).catch(function(error){
         console.log("Error")
         console.error(error)

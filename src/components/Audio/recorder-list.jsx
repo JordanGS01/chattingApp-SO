@@ -1,6 +1,8 @@
 
 import useRecordingsList from "./hooks/use-recordings-list";
-export default function RecordingsList({ audio }) {
+import { uploadAudio } from '../../firebase'
+
+export default function RecordingsList({ audio, user, chatId }) {
   const { recordings, deleteAudio } = useRecordingsList(audio);
 
   return (
@@ -14,9 +16,10 @@ export default function RecordingsList({ audio }) {
                 <audio controls src={record.audio} />
                 <div className="delete-button-container">
                   <button
-                    class="nes-btn is-warning"
+                    className="nes-btn is-warning"
                     title="Delete this audio"
-                    onClick={() => deleteAudio(record.key)}
+                    //onClick={() => deleteAudio(record.key)}
+                    onClick={() => uploadAudio(record, user, chatId)}
                   >
                     Delete
                   </button>
