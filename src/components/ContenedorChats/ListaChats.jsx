@@ -1,10 +1,7 @@
 
 import Chat from './Chat'
 
-// Imagenes de prueba
-import src from "./Bulbasaur.png"
-import src1 from "./charmander.png"
-import src2 from "./squirtle.png"
+
 
 const ListaChats = ({activeChats,CurrentUserInfo}) => {
 
@@ -30,10 +27,14 @@ const ListaChats = ({activeChats,CurrentUserInfo}) => {
             <Chat   nombre = {getChatName(chatElement)} 
             id = {chatElement.id}
             CurrentUserInfo = {CurrentUserInfo}
-            messages = {chatElement.messages}/>
+            messages = {chatElement.messages}
+            />
           )
         })
-        } 
+        }
+       
+
+   
     </div>
     )
 }

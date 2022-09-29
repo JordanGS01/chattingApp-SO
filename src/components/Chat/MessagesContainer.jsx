@@ -56,7 +56,10 @@ export const MessagesContainer = () => {
     <div className="nes-container is-rounded" style={{borderLeft : "0px",borderRight : "0px"}}>
       <section className="message-list" >
         {chatMessages.map((message) =>{
-          return (<Message user={returnSenderName(message)} content={message.content} sender={senderOrReceiver(message)}/>)
+          return (<Message user={returnSenderName(message)}
+           content={message.content} 
+           sender={senderOrReceiver(message)}
+           hour = {message.hour}/>)
         }) 
         } 
       </section>

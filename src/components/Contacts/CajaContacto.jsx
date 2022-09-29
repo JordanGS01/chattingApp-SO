@@ -104,7 +104,7 @@ const CajaContacto = (props) => {
     <div className='seleccionar-contacto' variant='light' style={{backgroundColor: bloqueado ? "	#8B0000" : "white"}}>
       <div className="form-contactos"  style={{backgroundColor: bloqueado ? "	#8B0000" : "white"}}>
             <img className="foto-perfil-chat" src={bloqueado ? fotoVacia : props.fotoPerfil ? props.fotoPerfil :fotoVacia } />
-            <div className='nombre-contacto' style={{backgroundColor: bloqueado ? "	#8B0000" : "white"}}>
+            <div className='nombre-contacto' style={{backgroundColor: bloqueado ? "	#8B0000" : "white",fontSize:"x-small"}}>
               {props.nombre}
             </div>
             <Dropdown className='opciones-contactos' style={{backgroundColor: bloqueado ? "	#8B0000" : "white"}}>

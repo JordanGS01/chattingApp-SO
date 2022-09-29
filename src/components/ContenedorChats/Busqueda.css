@@ -1,6 +1,9 @@
 .contenedor-barra-busqueda{
     background-color: white;
     height: fit-content;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .boton-busqueda{

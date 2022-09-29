@@ -69,7 +69,7 @@ const Busqueda = () => {
           </Button>
         </Link>
       </Form>
-{/* Modal Para bloquear usuario */}
+{/* Modal Para agregar usuario */}
       <Modal className = 'modal-addContact' show= {showAddContact} onHide = {() => closeAddContact}>
         
         <Modal.Header>
@@ -86,17 +86,14 @@ const Busqueda = () => {
             <Button className='submitContactButton' variant = "success" type='submit'  style={{backgroundColor : "green"}}>
               <AiOutlineCheck style={{backgroundColor : "green"}}/>
             </Button>
+            <Button variant = "danger" onClick= {closeAddContact} style={{backgroundColor : "red"}}>
+              <MdCancel  style={{backgroundColor : "red"}}/>
+            </Button>
           </Form>
+        
         </Modal.Body>
 
-        <Modal.Footer className= "contenedor-botones-modal-bloqueo">
 
-
-          <Button variant = "danger" onClick= {closeAddContact} style={{backgroundColor : "red"}}>
-              <MdCancel  style={{backgroundColor : "red"}}/>
-          </Button>
-
-        </Modal.Footer>
 
      </Modal>
    

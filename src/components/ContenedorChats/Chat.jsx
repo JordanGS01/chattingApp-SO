@@ -19,6 +19,7 @@ const Chat = (props) => {
     }
 
   }
+  
   const lastTextFunction = () =>{
     if(lastmessage.content.length > 25 &&  lastmessage.content.length > 0) {
       setLastText(lastmessage.content.slice(0,12)+ "...")
