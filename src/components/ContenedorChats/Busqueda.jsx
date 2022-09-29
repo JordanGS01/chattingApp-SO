@@ -69,34 +69,40 @@ const Busqueda = () => {
           </Button>
         </Link>
       </Form>
-{/* Modal Para agregar usuario */}
-      <Modal className = 'modal-addContact' show= {showAddContact} onHide = {() => closeAddContact}>
+
+     {/* Modal añadir Contacto */}
+     <Modal className = 'modal-addContact' show= {showAddContact} onHide = {() => closeAddContact}>
         
-        <Modal.Header>
-          <Modal.Title > Add User </Modal.Title>
+        <Modal.Header style={{width : "fix-content"}}>
+          <Modal.Title style={{display : "flex",justifyContent : "space-between",fontSize : "x-small"}}> 
+            <h1>
+              Add User 
+            </h1>
+          <Button variant = "danger" onClick= {closeAddContact} style={{backgroundColor : "red"}}>
+              <MdCancel  style={{backgroundColor : "red"}}/>
+          </Button>
+          </Modal.Title>
         </Modal.Header>
 
         <Modal.Body style={{textIndent : "10%", border:"0px"}}>
-          <Form onSubmit={onFormSubmit} className= "modal-addContact-form">
+          <Form onSubmit={onFormSubmit} style = {{display: "flex",justifyContent : "space-between "}}>
             <input 
               onChange={(e) => setContactName(e.target.value)} 
               value = {contactName}
             />
 
-            <Button className='submitContactButton' variant = "success" type='submit'  style={{backgroundColor : "green"}}>
+            <Button  variant = "success" type='submit' style={{backgroundColor : "green"}}>
               <AiOutlineCheck style={{backgroundColor : "green"}}/>
             </Button>
-            <Button variant = "danger" onClick= {closeAddContact} style={{backgroundColor : "red"}}>
-              <MdCancel  style={{backgroundColor : "red"}}/>
-            </Button>
           </Form>
-        
         </Modal.Body>
 
+        <Modal.Footer className= "contenedor-botones-modal-bloqueo">
 
+
+        </Modal.Footer>
 
      </Modal>
-   
     </div>
   )
 }

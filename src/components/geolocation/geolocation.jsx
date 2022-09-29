@@ -53,18 +53,15 @@ const geolocalizacion=()=>{
         console.log("Error")
         console.error(error)
     });
-    
-
-
 }
 
 
 
 export const Geolocation = () => { 
     return(
-        <div>
+        <>
            {geolocalizacion()}
-        </div>
+        </>
     );
     
 }

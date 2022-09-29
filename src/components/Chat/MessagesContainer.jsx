@@ -16,6 +16,9 @@ export const MessagesContainer = () => {
 
   let sender = ""
 
+  const userIsBlocked = () =>{
+    
+  }
   const declareData = async() =>{
     const currentUserData = await getCurrentUser()
     setCurrentUser(currentUserData)
@@ -41,7 +44,6 @@ export const MessagesContainer = () => {
       sender = object.sender
       return sender
     }
-
   }
 
   useEffect (() => {
@@ -50,7 +52,10 @@ export const MessagesContainer = () => {
 
     },[chat])
   
-  if(chat.id === undefined){return<></>}
+  if(chat.id === undefined){return
+  <>
+  </>
+  }
   
   return (
 
