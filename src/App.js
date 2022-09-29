@@ -43,7 +43,6 @@ function App() {
                 <AiOutlinePlusSquare/>
                 Go to your contacts!
             </Button>
-            <Translate></Translate>
           </div>
           } 
         </div>
