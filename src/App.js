@@ -15,11 +15,11 @@ import ContenedorPrincipal from './components/ContenedorChats/ContenedorPrincipa
 import { NavegationBar } from './components/Navbar/NavegationBar'
 import { Login } from './pages/auth/Login/Login';
 
-import {Translate} from './components/translate/translatecomp' 
-
 import { ChatContext } from './context/ChatContext'
 import { AiOutlinePlusSquare } from 'react-icons/ai'
 import { Button } from 'react-bootstrap';
+
+
 function App() {
   
   const [ user ] = useAuthState(auth)

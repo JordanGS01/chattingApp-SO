@@ -1,4 +1,3 @@
-import { connectFirestoreEmulator } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import Button from 'react-bootstrap/Button';
 import { TiWeatherPartlySunny } from 'react-icons/ti'
