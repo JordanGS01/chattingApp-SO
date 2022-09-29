@@ -3,11 +3,11 @@ import { useForm } from '../../hooks/useForm'
 import {FaMicrophone} from 'react-icons/fa'
 import {BsCameraFill} from 'react-icons/bs'
 import './InputMessageBar.css'
-import { useContext ,useRef} from "react"
+import { useContext } from "react"
 import { ChatContext } from "../../context/ChatContext"
 import { addMessage } from '../../firebase'
 
-import {BiSend,BiMicrophone} from 'react-icons/bi'
+import {BiSend} from 'react-icons/bi'
 import {MdFileUpload} from 'react-icons/md'
 import {AudioRecorder} from '../Audio/audiorec'
 

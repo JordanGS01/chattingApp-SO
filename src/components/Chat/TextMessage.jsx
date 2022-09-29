@@ -1,6 +1,6 @@
 
-import "./Message.css"
-export const Message = ({ type, user, content, sender,hour }) => {
+
+export const TextMessage = ({ user, content, sender, hour }) => {
   return (
     <div className={`message ${!sender?"-left":"-right"}`} style = {{marginRight : sender ? 0 : "auto",marginLeft : sender ? "auto":0}}>
       <div className={`balloon ${!sender?"from-left":"from-right"}`} style ={{backgroundColor : sender ? "lightgreen":"lightcoral",marginRight : sender ? 0 : "auto"}}>
