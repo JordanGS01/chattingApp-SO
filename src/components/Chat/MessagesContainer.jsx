@@ -1,19 +1,20 @@
+import { useContext, useState, useEffect } from "react"
+
 import { InputMessageBar } from "./InputMessageBar"
-import { Message } from "./Message"
-import { useContext,useState,useEffect } from "react"
+import { Messages } from "./Messages"
 import { ChatContext } from "../../context/ChatContext"
 
-import { getCurrentUser } from '../../firebase'
+import { getCurrentUser, getChatDataRealtime } from '../../firebase'
 
-import { getChatDataRealtime } from '../../firebase'
 import "./MessagesContainer.css"
+
 export const MessagesContainer = () => {
 
   const { chat } = useContext(ChatContext)
   const [chatMessages, setChatMessages] = useState(chat.messages?chat.messages:{});
 
   const [currentUser,setCurrentUser] = useState()
-
+  
   let sender = ""
 
   const userIsBlocked = () =>{
@@ -52,20 +53,20 @@ export const MessagesContainer = () => {
 
     },[chat])
   
-  if(chat.id === undefined){return
-  <>
-  </>
-  }
+  if(chat?.id === undefined){return<></>}
   
   return (
-
     <div className="nes-container is-rounded" style={{borderLeft : "0px",borderRight : "0px"}}>
       <section className="message-list" >
         {chatMessages.map((message) =>{
-          return (<Message user={returnSenderName(message)}
-           content={message.content} 
-           sender={senderOrReceiver(message)}
-           hour = {message.hour}/>)
+          return (
+          <Messages
+            user = { returnSenderName(message) }
+            content = { message.content }
+            sender = { senderOrReceiver(message) }
+            hour = { message.hour }
+            type = { message.type }
+          />)
         }) 
         } 
       </section>

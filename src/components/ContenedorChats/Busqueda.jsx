@@ -64,7 +64,9 @@ const Busqueda = () => {
           <Button 
             className='boton-Contactos'
             variant='light'
+            // onClick={() => window.location.reload(false)}
           >
+            
             <AiOutlineContacts/>
           </Button>
         </Link>

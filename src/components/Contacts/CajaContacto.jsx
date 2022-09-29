@@ -8,9 +8,9 @@ import { Dropdown,Modal,Button,Toast} from 'react-bootstrap'
 
 // Funciones Firebase
 
-import { blockUser,unblockUser,eliminateContact,getActiveChats, addNewChat, searchUser} from "../../firebase"
+import { blockUser,unblockUser,eliminateContact,getActiveChats, addNewChat} from "../../firebase"
 
-import { useContext } from "react"
+import { useContext,useEffect } from "react"
 // Iconos
 import {BsFillTrashFill,BsFillChatFill,BsFillUnlockFill} from 'react-icons/bs'
 import {BiBlock} from 'react-icons/bi'
@@ -51,19 +51,19 @@ const CajaContacto = (props) => {
       eliminateContact()
   }
 
-  const bloquearUsuario = () => {
+  const bloquearUsuario = async() => {
       setPopUpBloqueo(false)
       setBloqueo(true)
-      blockUser(props.nombre)
+      await blockUser(props.nombre)
+      window.location.reload(false)
   }
-
-  const desbloquearUsuario = () => {
+  const desbloquearUsuario = async() => {
     notificarDesbloqueo()
     setBloqueo(false)
-    unblockUser(props.nombre)
+    await unblockUser(props.nombre)
+    window.location.reload(false)
   }
-  const {chat,setChat} = useContext(ChatContext)
-
+  const {setChat} = useContext(ChatContext)
   const existChat = (chatsArray) =>{
     if (chatsArray === undefined){return}
     let exist = false

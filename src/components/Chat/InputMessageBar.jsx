@@ -3,11 +3,11 @@ import { useForm } from '../../hooks/useForm'
 import {FaMicrophone} from 'react-icons/fa'
 import {BsCameraFill} from 'react-icons/bs'
 import './InputMessageBar.css'
-import { useContext ,useRef} from "react"
+import { useContext} from "react"
 import { ChatContext } from "../../context/ChatContext"
 import { addMessage } from '../../firebase'
 
-import {BiSend,BiMicrophone} from 'react-icons/bi'
+import {BiSend} from 'react-icons/bi'
 import {MdFileUpload} from 'react-icons/md'
 import {AudioRecorder} from '../Audio/audiorec'
 
@@ -21,8 +21,6 @@ export const InputMessageBar = ({ CurrentUser }) => {
 
     const onFormSubmit = (e) => {
         e.preventDefault();
-        
-
         const d = new Date()
         const currentDate = d.getHours() + ":" + d.getMinutes()
 
@@ -36,14 +34,28 @@ export const InputMessageBar = ({ CurrentUser }) => {
 
         onResetForm();
     }
+    const isUserBlocked = () =>{
+        let blockedUser = false
+        CurrentUser?.contacts.map((contact) =>{
+            if (chat?.members.includes(contact?.userName)){
+                blockedUser = contact.blocked
+            }
+        })
+        return blockedUser
+    }   
 
+    
     return (
+        <>
+        { isUserBlocked() ?  <div style={{color : "red"}}>
+            No se pueden enviar Mensajes, el usuario esta bloqueado
+        </div> 
+        :
         <div className='InputMessageBar-Form'>
         <form className='InputMessageBar-Form' onSubmit={onFormSubmit}>
             <button
                 name='camera'
                 id='camera'
-                //onClick={}
                 className="nes-btn is-success"
             >
                 <BsCameraFill style={{backgroundColor:"#98cc44"}}/>
@@ -79,6 +91,10 @@ export const InputMessageBar = ({ CurrentUser }) => {
             {/* <input name='audio' id='audio' type="file"></input> */}
         </form>
         <AudioRecorder user={CurrentUser?.user} chatId={chat?.id}/>
-        </div>
+        </div> 
+            
+    }
+    </>
     )
+    
 }

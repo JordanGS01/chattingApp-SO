@@ -32,7 +32,7 @@ function App() {
         user ?
         <>
         
-        <NavegationBar />
+        <NavegationBar CurrentUser = {user}/>
         <div className='app'>
           <ContenedorPrincipal />
           {chat.id ?
