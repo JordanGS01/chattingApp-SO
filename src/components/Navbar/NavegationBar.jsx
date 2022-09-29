@@ -8,6 +8,9 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
+import { Geolocation } from '../geolocation/Geolocation'
+
+
 //FUNCIONES DE FIREBASE CREADAS POR NOSOTROS
 import { signOutUser } from '../../firebase'
 
@@ -24,8 +27,8 @@ export const NavegationBar = () => {
 
                 </Nav>
                 <Nav>
-
-                  <img src={User} className='imgUser' alt="Logo"/>
+                  <Geolocation  />
+                  <img src={User} className='imgUser'  style={{marginLeft:'10px'}}  alt="Logo"/>
                   <span className="simpletext">Username <br></br> <p className="statusOnline" onClick={signOutUser}> Log Out</p> </span> 
                  
                 </Nav>

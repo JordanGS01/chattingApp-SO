@@ -14,8 +14,8 @@ import { MessagesContainer } from './components/Chat/MessagesContainer';
 import ContenedorPrincipal from './components/ContenedorChats/ContenedorPrincipal'
 import { NavegationBar } from './components/Navbar/NavegationBar'
 import { Login } from './pages/auth/Login/Login';
-import { Geolocation } from './components/geolocation/Geolocation'
 
+import {Translate} from './components/translate/translatecomp' 
 
 import { ChatContext } from './context/ChatContext'
 import { AiOutlinePlusSquare } from 'react-icons/ai'
@@ -43,11 +43,12 @@ function App() {
                 <AiOutlinePlusSquare/>
                 Go to your contacts!
             </Button>
+            <Translate></Translate>
           </div>
           } 
         </div>
 
-        <Geolocation />
+        
         </>
         :
         
