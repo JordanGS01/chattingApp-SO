@@ -31,6 +31,7 @@ export const MessagesContainer = () => {
       return true
     }
   }
+  
   const returnSenderName = (object) => {
     if (chat.members[0] === object.sender){
       sender = chat.members[0]
@@ -63,7 +64,7 @@ export const MessagesContainer = () => {
         }) 
         } 
       </section>
-      <InputMessageBar CurrentUser = {currentUser}/>
+      <InputMessageBar CurrentUser = {currentUser} />
     </div>
   )
 }

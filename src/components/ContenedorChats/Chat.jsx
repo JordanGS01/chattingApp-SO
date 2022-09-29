@@ -42,10 +42,12 @@ const Chat = (props) => {
     
     setChat(array) 
   }
+
+  
   return (
     <>
     <Button className='seleccionar-chat' variant='light' onClick={changeChat} style={{borderRight : changeCurrentChatStyle ? "6px solid purple" : "0px"}}>
-    <div className='caja-chat' >
+    <main className='caja-chat' >
         <img className="foto-perfil-chat" src={props.fotoPerfil ? props.fotoPerfil : fotoVacia} />
         <div className='contenedor-texto'>
           <div className='contenedor-nombre-fecha'>
@@ -60,7 +62,7 @@ const Chat = (props) => {
               {lastmessage ? lastText  : "No hay mensajes con este usuario"}
             </div>
         </div>
-      </div>
+      </main>
   
     </Button>
     </>
